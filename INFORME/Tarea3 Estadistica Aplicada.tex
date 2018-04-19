@@ -1,0 +1,282 @@
+% -------------------------------------------------------------------------------------
+% Plantilla de un artículo para publicar en la Revista Colombiana de Estadística
+% *************************************************************************************
+% -------------------------------------------------------------------------------------
+% Establecer primero el idioma principal del artículo, por defecto es español; para
+% utilizar otro idioma, cambiar el comando "\documentclass{revcoles}" por el comando
+% "\documentclass[english]{revcoles}" o por "\documentclass[portuguese]{revcoles}"
+% **** --------------------------------------------------------------------------------
+\documentclass[report,oneside]{revcoles}
+\labeldocument[
+university = Universidad del Valle,
+faculty = Facultad de Ingeniería,
+department = Escuela de Estadística,
+program = Programa Académico de Estadística,
+subject = Estadística Aplicada II,
+city = Cali,
+month = 3,
+year = 2018]
+
+% -------------------------------------------------------------------------------------
+% Espacio reservado para la carga de los paquetes por parte del autor
+% **** --------------------------------------------------------------------------------
+
+
+
+
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para colocar las definiciones especiales por parte del autor
+% **** --------------------------------------------------------------------------------
+
+
+
+
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio utilizado para colocar las palabras que necesitan partición silábica
+% **** --------------------------------------------------------------------------------
+\hyphenation{Colombia mul-ti-va-ria-do pro-ba-bi-li-dad es-ta-dís-ti-ca}
+% //// --------------------------------------------------------------------------------
+\begin{document}
+
+% -------------------------------------------------------------------------------------
+% Espacio reservado para ingresar el título del artículo
+% "maintitle = " título original del artículo
+% "secondtitle = " título del artículo traducido al idioma alterno
+% "shorttitle = " título corto (opcional) para el encabezado
+% **** --------------------------------------------------------------------------------
+\title[maintitle = Tarea 3:Supuestos en el modelo de regresión lineal,
+       %secondtitle = Template for report in a course,
+       shorttitle = Supuestos en el modelo de regresión lineal
+]
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para ingresar el(los) autor(es) del artículo de forma individual.
+% opción "firstname = " nombres completos de cada autor
+% opción "surname = " primer apellido de cada autor
+% opción "numberinstitution = " número que identifica la institución a la que pertenece
+%         el autor, en caso de haber solo una institución el campo se elimina
+% opción "affiliation = " afiliación o cargo que desempeña el autor en la institución
+% opción "email = " dirección electrónica del autor (preferiblemente institucional)
+% **** --------------------------------------------------------------------------------
+\begin{authors}
+\author[firstname = Kevin Steven,
+        surname = García,
+        code = Código: 1533173,
+        email = kevin.chica@correounivalle.edu.co,
+]
+\author[firstname = Alejandro,
+        surname = Vargas,
+        code = Código: 1525953 ,
+        email = jose.alejandro.vargas@correounivalle.edu.co
+]
+\end{authors}
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para ingresar la información de la(s) institución(es) a la(s)
+% cual(es) pertenece(n) el(los) autor(es)
+% Usar un comando "\institute"  por cada una de las diferentes instituciones.
+% Los campos "subdivision" y "division" son opcionales
+% Los campos "institution", "city" y "country" son obligatorios
+% **** --------------------------------------------------------------------------------
+\begin{comment}
+\begin{institutions}
+     \institute[subdivision = Departamento de Estadística,
+                division = Facultad de Ciencias,
+                institution = Universidad del Valle,
+                city = Cali,
+                country = Colombia]
+\end{institutions}
+\end{comment}
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% CUERPO DEL DOCUMENTO
+% **** --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para colocar el resumen en el idioma principal y las palabras clave
+% !!No dejar salto de línea entre el resumen y el comando \keywords{.}¡¡
+% **** --------------------------------------------------------------------------------
+\begin{comment}
+\begin{mainabstract}
+Este documento contiene las instrucciones de presentación de los
+trabajos de cursos. Este texto está escrito utilizando \LaTeX\
+como editor según formato adjunto (archivo \emph{Template for Report.tex})
+y puede utilizarse como guía, reemplazando este contenido. Se requieren los
+archivos \emph{revcoles.cls}, \emph{references.bib} y \emph{graph\_example.eps}.%
+%
+\keywords{Formato en \LaTeX\ para documentos, carrera de Estadística}
+\end{mainabstract}
+\end{comment}
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para colocar el resumen en el idioma secundario y las palabras clave
+% !!No dejar salto de línea entre el resumen y el comando \keywords{.}¡¡
+% **** --------------------------------------------------------------------------------
+\begin{comment}
+\begin{secondaryabstract}
+This document gives the instructions to prepare a \LaTeX\ version of the graduation project of undergraduate in
+Statistics to first semester of 2008. The document is written using a \LaTeX\ format (file \emph{Plantilla para trabajo
+de grado.tex}) and can be used as a guideline just replacing its contents. It is necessary to use also the files
+\emph{revcoles.cls}, \emph{references.bib} and \emph{graph\_example.eps}.
+%
+\keywords{\LaTeX\ format for documents, undergraduate in Statistics}
+\end{secondaryabstract}
+
+\end{comment}% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Título de la primera sección
+% **** --------------------------------------------------------------------------------
+\section{Introducción}
+~\\ En este trabajo evaluaremos el supuesto de independencia en los errores del modelo lineal ajustado para los 500 datos seleccionados de la base de datos 'cadata'. Se dará una presentación formal del supuesto y se mostraran algunas consecuencias que tiene el incumplimiento de este, además, se aplicaran pruebas tanto gráficas como estadísticas para verificar el incumplimiento o cumplimiento de este supuesto en nuestro modelo lineal ajustado y finalmente, se concluirá acerca del modelo teniendo en cuenta los resultados de las pruebas aplicadas.
+\section{Modelo ajustado}
+~\\ El modelo ajustado sobre el cuál se va a validar el supuesto de independencia en los errores, es el modelo que se ajusto en la tarea 1, que pretendía explicar la variable $Y=$'Valor mediano de las viviendas' con las variables explicativas $X_{1}=$'Ingreso mediano',$X_{2}=$'Edad mediana de la vivienda',$X_{3}=$'Total de habitaciones',$X_{4}=$'Total de dormitorios',$X_{5}=$'Población' y $X_{6}=$'Hogares'. El modelo ajustado para estas variables, sin hacer transformación ni selección de estas es:
+$$Y = 57720.52 + 24261.20X_{1} + 3443.94X_{2} + 19.09X_{3} - 67.72X_{4} - 121.66X_{5} +
+315.92X_{6} $$
+
+\section{Punto 1:Supuesto de independencia (no correlación) en los errores}
+~\\ El supuesto de independencia o de no correlación de los errores establece que $COV(\varepsilon_{i},\varepsilon_{j})=0$ $\forall i\neq j$
+~\\ Esto en palabras quiere decir que todos los valores en posiciones diferentes a la diagonal de la matriz de varianzas y covarianzas deben ser igual a cero.
+ 
+ ~\\\[V[E]=
+\left( \begin{array}{cccc}
+ \sigma^2 & 0 & \cdots & 0 \\ 
+ 0 & \sigma^2 & \cdots & 0 \\
+ \vdots & \vdots & \ddots & \vdots \\
+ 0 & 0 & \cdots & \sigma^2
+\end{array} \right) \]
+
+~\\El efecto que produce la correlación entre errores en el modelo de regresión, es que tiende a cambiar la matriz de varianzas y covarianzas $\sigma^2 I$ por $\sigma^2 V$, y esto tiene como consecuencia la perdida de la optimalidad del estimador de mínimos cuadrados ordinarios (MCO), es decir, los estimadores obtenidos por este método de estimación ya no son estimadores óptimos. La solución a este problema es utilizar mínimos cuadrados generalizados para tratar de recuperar la optimalidad de los estimadores, pero, este método nos exige conocer la matriz V, la cuál nunca conocemos, y estimarla resulta muy complicado en la practica.
+~\\ El efecto de la dependencia puede ser un un problema muy grave y difícil de corregir, por ello es importante prevenirlo cuando los datos se están recopilando. El método más eficaz para prevenir la dependencia es realizar un procedimiento apropiado de aleatorización.
+~\\Además, si los errores están correlacionados, entonces la regresión de los mínimos cuadrados puede subestimar el error estándar de los coeficientes. Errores estándar subestimados pueden hacer que sus predictores parezcan significativos, cuando en realidad no lo son.
+
+~\\ Para evaluar el cumplimiento o incumplimiento de este supuesto nos vamos a basar en una prueba gráfica y en tres pruebas estadísticas. La prueba gráfica consiste básicamente en realizar una gráfica de autocorrelación de los residuales, llamado correlograma  y observar si estas correlaciones se salen del intervalo de confianza. Las pruebas estadísticas que vamos a aplicar son, la prueba de rachas, la prueba de Durbin-Watson y la prueba de Ljung-Box, la explicación teórica de estas pruebas se dará en el punto 3 (literal 5).
+\section{Punto 2:Aplicación de las pruebas para evaluar el supuesto}
+\begin{itemize}
+\item Prueba gráfica:
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.45]{FigurasUV/4.pdf}
+  \caption{Correlograma de los residuales}\label{figura1}
+\end{figure}
+~\\ En esta gráfica se puede observar que la autocorrelación de los errores, es distinta de cero, ya que hay varías barras que se salen del intervalo (lineas azules) que fue construido con un 95\% de confianza, entonces, se puede rechazar $H_{0}$ y concluir que si existe algún tipo de correlación en los errores.
+
+\item Prueba de Rachas: Esta prueba se realizo con la ayuda del software \citeasnoun{R} con el paquete \citeasnoun{Rachas}. Se podría realizar manualmente, pero era algo tedioso por la cantidad de datos sobre los cuales se debe aplicar la prueba, recordemos que lo que se busca es que los residuales sean completamente aleatorios, en otras palabras, que entre ellos no exista algún tipo de correlación.
+~\\ La prueba realizada fue de dos colas, por lo tanto, las hipótesis planteadas son del siguiente tipo:
+\begin{center}
+~\\ $H_{0}:$La muestra es aleatoria (Los residuales son independientes)
+~\\ $H_{1}:$La muestra no es aleatoria (Los residuales no son independientes)
+\end{center}
+~\\El resultado de R nos arroja el cuantil de la aproximación del estadístico a la normal estándar que fue Z=-7.5892 y el p-valor, el cual fue $3.219*10^{-14}$ o lo que es lo mismo 0.00000000000003219, lo cuál es un valor p demasiado pequeño, que nos lleva a rechazar $H_{0}$ y concluimos que los residuales no son independientes, o que tienen una correlación entre ellos.
+
+\item Prueba de Durbin - Watson: Esta prueba también fue realizada en \citeasnoun{R} con el paquete \citeasnoun{Lm}. Al igual que la anterior, esta prueba fue realizada de dos colas o bilateral, ya que nos interesa si los residuales tienen correlación o no, es decir, por ahora no nos interesa saber si dicha correlación es menor o mayor que cero. Por lo tanto, las hipótesis planteadas fueron las siguientes:
+\begin{center}
+~\\ $H_{0}:\rho=0$ (La autocorrelación en los residuales es cero)
+~\\ $H_{1}:\rho \neq0$ (La autocorrelación en los residuales es diferente de cero)
+\end{center}
+
+~\\El resultado de R nos arroja el estadístico de prueba que fue DW=1.3869 y el p valor el cual fue, p-value$= 2.614*10^{-12}$ o lo que es lo mismo 0.000000000002614, el cuál es demasiado pequeño, esto nos dice que en la muestra hay mucha evidencia en contra de la hipotesis nula, por lo cuál esta se rechaza y concluimos que si hay autocorrelación en los errores.
+
+\item Prueba de Ljung-Box: Esta prueba también fue realizada en R, y plantea las siguientes dos hipotesis:
+
+~\\ $H_{0}:$Los datos se distribuyen de forma independiente (es decir, las correlaciones en la población de la que se toma la muestra son 0, de modo que cualquier correlación observada en los datos es el resultado de la aleatoriedad del proceso de muestreo).
+~\\ $H_{1}:$Los datos no se distribuyen de forma independiente.
+
+
+~\\Aplicando esta prueba en R, nos arroja el estadístico de prueba chi-cuadrado que fue $X^2=46.826$ y el valor p$=7.759*10^{-12}$ o 0.000000000007759, el cuál es un valor p demasiado bajo, muchísimo menor que cualquier nivel de significancia dado, esto nos indica que en la muestra(los residuales) hay demasiada evidencia en contra de la hipótesis nula, es decir, los datos dan evidencia de que los residuales no se distribuyen de forma independiente, por lo cuál se rechaza $H_{0}$.
+\end{itemize}
+\section{Punto 3:Descripción de las pruebas:}
+\begin{itemize}
+\item Prueba gráfica (correlograma): Esta gráfica nos muestra unas barras que corresponden a las correlaciones entre el residual $e_{i}$ y el residual $e_{i-k}$,donde k es la distancia entre la posición de los errores sobre la cuál se quiere observar tal correlación, básicamente la decisión consiste en generar un intervalo para dichas correlaciones y observar cuantos de ellos se salen de ese intervalo, si varias barras se salen de dicho intervalo, hay evidencia de que las correlaciones entre los errores son muy fuertes, por lo cual, no se puede decir que ellos son independientes. Está prueba es bastante subjetiva, ya que depende mucho de la experiencia y de la capacidad de la persona que la aplica para tomar su decisión sobre la validación del supuesto. Por lo cuál es preferible aplicar pruebas estadísticas como tal, como las siguientes tres que se van a describir.
+\item Prueba de Rachas:Para entender esta prueba primero se debe definir que es una racha. Dada una sucesión de n observaciones de una variable que solo puede tomar dos valores, una racha es una sucesión de uno o más datos con el mismo valor que están seguidos y precedidos por datos con el otro valor, o por ningún dato si se encuentran en el inicio o el final de la sucesión.
+~\\ Ejemplo: En la sucesión A BBB AA BB A B se presentan 6 rachas.
+~\\ Como se planteó, el problema que se desea resolver es decidir si el proceso mediante el cual se genera la sucesión pude considerarse aleatorio, tomando a la muestra como una sucesión de observaciones; se quiere conocer si ésta es aleatoria. Las hipótesis a considerar son:
+\begin{center}
+~\\ $H_{0}:$La muestra es aleatoria
+~\\ $H_{1}:$La muestra no es aleatoria
+\end{center}
+~\\Muestra aleatoria es aquella que proviene de una misma distribución y las observaciones son independientes.
+
+~\\ \textbf{Estadístico de prueba:} El estadístico de prueba es el número total de rachas, R, en la sucesión. Si llamamos $R_{1}$ y $R_{2}$ a las variables aleatorias número de rachas del tipo 1 (evento A) y del tipo 2 (evento B) respectivamente, entonces la el estadístico de prueba número total de rachas R será:
+$$R=R_{1}+R_{2}$$
+
+~\\ \textbf{Distribución del estadístico de prueba R:}Su distribución bajo la hipótesis nula $H_{0}$ esta dada por:
+\begin{center}
+~\\$P\left\lbrace{R=r}\right\rbrace=\frac{2\binom{n_{1}-1}{\frac{r}{2}-1}\binom{n_{2}-1}{\frac{r}{2}-1}}{\binom{n_{1}+n_{2}}{n_{1}}}$ si r es par
+
+~\\$P\left\lbrace{R=r}\right\rbrace=\frac{\binom{n_{1}-1}{\frac{r-1}{2}-1}\binom{n_{2}-1}{\frac{r-1}{2}}+\binom{n_{1}-1}{\frac{r-1}{2}}\binom{n_{2}-1}{\frac{r-1}{2}-1}}{\binom{n_{1}+n_{2}}{n_{1}}}$ si r es impar
+\end{center}
+~\\Para r=2,3,4,...,$n_{1}+n_{2}$
+
+~\\ \textbf{Aproximación a la normal:}La aproximación a la normal esta dada por:
+$$Z=\frac{R-\left(\frac{2n_{1}n_{2}}{n_{1}+n_{2}}+1\right)}{\sqrt{\frac{2n_{1}n_{2}(2n_{1}n_{2}-n_{1}-n_{2})}{(n_{1}+n_{2})^2 (n_{1}+n_{2}-1)}}} $$
+
+~\\ \textbf{Región de rechazo:}Se duda de la aleatoriedad cuando hay muchas o muy pocas rachas. Por tanto, la región de rechazo es de la forma:
+\begin{center}
+~\\ $R>R_{n_{1},n_{2};(1-\frac{\alpha}{2})}$ o $R<R_{n_{1},n_{2};\frac{\alpha}{2}}$
+\end{center}
+~\\Donde la parte derecha de cada inecuación son los percentiles $(1-\frac{\alpha}{2})$ y $\frac{\alpha}{2}$ de la distribución del número de rachas R, cuando hay $n_{1}$ observaciones del tipo A y $n_{2}$ del tipo B.
+\item Prueba de Durbin-Watson: El Test de Durbin-Watson permite evaluar si existe autocorrelación en una Regresión lineal, sea simple o múltiple. Con ello se pretende ver si los valores presentan algún tipo de dependencia en cuanto al orden de obtención. Las hipótesis que se plantean son las siguientes:
+\begin{center}
+~\\$H_{0}:\rho=0$
+~\\$H_{1}:\rho\neq 0$
+\end{center}
+~\\ \textbf{Estadístico de prueba:}El estadístico de Durbin-Watson (D) está condicionado según el orden de las observaciones. El estadístico de Durbin-Watson determina si la correlación entre los términos de error adyacentes es o no es igual a cero. este estadístico esta dado por : $D=\frac{\sum\limits_{t=2}^{n}(e_{t}-e_{t-1})^2}{\sum\limits_{t=1}^{n}e_{t}^2}$ donde $e_{t}$ es el residuo t-esimo o a tiempo t.
+
+~\\D varía entre 0 y 4. Si D esta cerca de 0 los errores están correlacionados positivamente. Si D está cerca de 4 entonces la correlación es negativa.
+La distribución de D es simétrica con respecto a 2. Así que un valor de D cercano a 2 indica que no hay correlación de los errores. 
+
+~\\ \textbf{Región de rechazo:}Para rechazar se utiliza una tabla con lo valores críticos del estadístico, las regiones de rechazo son:
+\item[-] Si $d < d_{L,\alpha}$ existe evidencia estadística de que los términos de error estén autocorrelacionados positivamente.
+\item[-] Si $d > d_{U,\alpha}$ no hay evidencia estadística de que los términos de error estén autocorrelacionados positivamente.
+\item[-] Si $d_{L,\alpha} < d < d_{U,\alpha}$ la prueba no es concluyente.
+\item Prueba de Ljung-Box:La prueba de Ljung-Box (llamada así por Greta M. Ljung y George E. P. Box) es un tipo de prueba estadística de si un grupo cualquiera de autocorrelaciones de una serie de tiempo son diferentes de cero. En lugar de probar la aleatoriedad en cada retardo distinto, esta prueba la aleatoriedad en general basado en un número de retardos.
+
+~\\En la prueba de Ljung-Box se puede definir o plantear las hipótesis de la siguiente manera:
+
+~\\$H_{0}:$Los datos se distribuyen de forma independiente (es decir, las correlaciones en la población de la que se toma la muestra son 0, de modo que cualquier correlación observada en los datos es el resultado de la aleatoriedad del proceso de muestreo).
+~\\$H_{1}:$ Los datos no se distribuyen de forma independiente.
+
+~\\ \textbf{Estadístico de prueba:} El estadístico de prueba es: $Q=n(n+2)\sum\limits_{k=1}^{h}\frac{\hat{\rho_{k}^{2}}}{n-k}$
+~\\ donde n es el tamaño de la muestra, $\displaystyle {\hat {\rho }}_{k}$  es la autocorrelación de la muestra en el retraso k y h es el número de retardos que se están probando.
+
+~\\ \textbf{Región de rechazo:} Para un nivel de significancia $\alpha$ la región critica para rechazar la hipótesis de aleatoriedad es: $Q>\chi^{2}_{1-\alpha,h}$
+
+~\\donde $\displaystyle \chi _{1-\alpha ,h}^{2}$ es el $\alpha$-cuantil de la distribución chi-cuadrado con m grados de libertad.
+\end{itemize}
+\section{Punto 4:Conclusiones del modelo ajustado con respecto al supuesto}
+~\\ Observando las 4 pruebas realizadas, podemos ver que en la primera( la prueba gráfica), hay muchas barras o correlaciones que se nos salen de los intervalos de confianza, por lo cuál se rechazo $H_{0}$ y se concluyo que con respecto a esa prueba no hay independencia en los errores, y con respecto a las pruebas estadísticas como tal (Rachas, Durbin-watson y Ljung-Box), vimos que los p valores de las tres pruebas son demasiado bajos, mucho mas bajos que cualquier nivel de significancia propuesto, por lo cuál en esas tres pruebas también se rechazo $H_{0}$, lo cuál confirma la existencia de correlación en los errores del modelo.
+
+~\\Teniendo en cuenta lo anterior, lo más común y razonable es concluir que nuestro modelo ajustado no cumple con este supuesto de independencia en los errores, por lo cuál diríamos que lo recomendable sería no usar este modelo. Sin embargo, los errores podrían ser independientes aún cuando los residuos no lo sean, y el supuesto se hace para los errores mas no para los residuos, pero eso no hay forma de probarlo a ciencia cierta, sin embargo hay que tener muy en cuenta los resultados obtenidos y queda a criterio de la persona si ignora estos resultados.
+
+
+
+
+
+
+\nocite{Behar}
+\nocite{supuestos}
+\nocite{Reg}
+\nocite{F}
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Fin del cuerpo del documento
+% **** --------------------------------------------------------------------------------
+% **** --------------------------------------------------------------------------------
+% Espacio para colocar el nombre del archivo *.bib (sin la extensión .bib) que contiene
+% las referencias bibliográficas del artículo utilizando el estilo bibliográfico BibTeX
+% "\referencias{.}"
+% **** --------------------------------------------------------------------------------
+\bibliography{references}
+% //// --------------------------------------------------------------------------------
+% //// --------------------------------------------------------------------------------
+    \appendix% !no modificar esta línea¡
+% -------------------------------------------------------------------------------------
+% Espacio para ubicar los apéndices: tablas y gráficas
+% **** --------------------------------------------------------------------------------
+
+
+% -------------------------------------------------------------------------------------
+% Fin del artículo
+% **** --------------------------------------------------------------------------------
+\end{document}
