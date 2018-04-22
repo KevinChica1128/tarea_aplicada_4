@@ -64,3 +64,8 @@ VIFho=(1-Rho2)^(-1)
 eigen(t(X)%*%X)
 k=max(eigen(t(X)%*%X)$values)/min(eigen(t(X)%*%X)$values)
 ki=c(max(eigen(t(X)%*%X)$values)/eigen(t(X)%*%X)$values)
+#METODO (PCR) componentes principales
+install.packages("pls")
+library(pls)
+regresion_pcr=pcr(formula=cadata$Valor_mediano_de_la_casa ~ cadata$Ingreso_mediano+cadata$Edad_mediana_de_la_vivienda+cadata$Total_de_habitaciones+cadata$Total_de_dormitorios+cadata$Poblacion+cadata$Hogares)
+summary(regresion_pcr)
