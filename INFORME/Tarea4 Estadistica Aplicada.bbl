@@ -1,0 +1,21 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{Douglas C.~Montgomery}{2002}{Reg}
+Douglas C.~Montgomery, Elizabeth A.~Peck, G. G.~V.  \harvardyearleft
+  2002\harvardyearright , {\em {Introducción al análisis de regresión lineal}},
+  tercera edn, Compañía Editorial Continental.
+
+\harvarditem{Faraway}{2005}{F}
+Faraway, J.~J.  \harvardyearleft 2005\harvardyearright , {\em Extending the
+  Linear Model with R: Generalized Linear, Mixed Effects and Nonparametric
+  Regression Models}, Vol. 1 edn., Chapman y Hall / CRC.
+
+\harvarditem{Gómez}{2006}{supuestos}
+Gómez, N.~G.  \harvardyearleft 2006\harvardyearright , {\em Notas de clase:
+  Series de tiempo con R}, Universidad Nacional de Colombia.
+
+\harvarditem{Gutiérrez}{2003}{Behar}
+Gutiérrez, R.~B.  \harvardyearleft 2003\harvardyearright , `Validación de
+  supuestos en el modelo de regresión', {\em Serie Monografías} {\bf 1 edn.}
+
+\end{thebibliography}

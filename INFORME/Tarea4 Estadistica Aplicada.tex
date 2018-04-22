@@ -1,0 +1,229 @@
+% -------------------------------------------------------------------------------------
+% Plantilla de un artículo para publicar en la Revista Colombiana de Estadística
+% *************************************************************************************
+% -------------------------------------------------------------------------------------
+% Establecer primero el idioma principal del artículo, por defecto es español; para
+% utilizar otro idioma, cambiar el comando "\documentclass{revcoles}" por el comando
+% "\documentclass[english]{revcoles}" o por "\documentclass[portuguese]{revcoles}"
+% **** --------------------------------------------------------------------------------
+\documentclass[report,oneside]{revcoles}
+\labeldocument[
+university = Universidad del Valle,
+faculty = Facultad de Ingeniería,
+department = Escuela de Estadística,
+program = Programa Académico de Estadística,
+subject = Estadística Aplicada II,
+city = Cali,
+month = 4,
+year = 2018]
+
+% -------------------------------------------------------------------------------------
+% Espacio reservado para la carga de los paquetes por parte del autor
+% **** --------------------------------------------------------------------------------
+
+
+
+
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para colocar las definiciones especiales por parte del autor
+% **** --------------------------------------------------------------------------------
+
+
+
+
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio utilizado para colocar las palabras que necesitan partición silábica
+% **** --------------------------------------------------------------------------------
+\hyphenation{Colombia mul-ti-va-ria-do pro-ba-bi-li-dad es-ta-dís-ti-ca}
+% //// --------------------------------------------------------------------------------
+\begin{document}
+
+% -------------------------------------------------------------------------------------
+% Espacio reservado para ingresar el título del artículo
+% "maintitle = " título original del artículo
+% "secondtitle = " título del artículo traducido al idioma alterno
+% "shorttitle = " título corto (opcional) para el encabezado
+% **** --------------------------------------------------------------------------------
+\title[maintitle = Tarea 4: Multicolinealidad,
+       %secondtitle = Template for report in a course,
+       shorttitle = Multicolinealidad
+]
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para ingresar el(los) autor(es) del artículo de forma individual.
+% opción "firstname = " nombres completos de cada autor
+% opción "surname = " primer apellido de cada autor
+% opción "numberinstitution = " número que identifica la institución a la que pertenece
+%         el autor, en caso de haber solo una institución el campo se elimina
+% opción "affiliation = " afiliación o cargo que desempeña el autor en la institución
+% opción "email = " dirección electrónica del autor (preferiblemente institucional)
+% **** --------------------------------------------------------------------------------
+\begin{authors}
+\author[firstname = Kevin Steven,
+        surname = García,
+        code = Código: 1533173,
+        email = kevin.chica@correounivalle.edu.co,
+]
+\author[firstname = Alejandro,
+        surname = Vargas,
+        code = Código: 1525953 ,
+        email = jose.alejandro.vargas@correounivalle.edu.co
+]
+\end{authors}
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para ingresar la información de la(s) institución(es) a la(s)
+% cual(es) pertenece(n) el(los) autor(es)
+% Usar un comando "\institute"  por cada una de las diferentes instituciones.
+% Los campos "subdivision" y "division" son opcionales
+% Los campos "institution", "city" y "country" son obligatorios
+% **** --------------------------------------------------------------------------------
+\begin{comment}
+\begin{institutions}
+     \institute[subdivision = Departamento de Estadística,
+                division = Facultad de Ciencias,
+                institution = Universidad del Valle,
+                city = Cali,
+                country = Colombia]
+\end{institutions}
+\end{comment}
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% CUERPO DEL DOCUMENTO
+% **** --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para colocar el resumen en el idioma principal y las palabras clave
+% !!No dejar salto de línea entre el resumen y el comando \keywords{.}¡¡
+% **** --------------------------------------------------------------------------------
+\begin{comment}
+\begin{mainabstract}
+Este documento contiene las instrucciones de presentación de los
+trabajos de cursos. Este texto está escrito utilizando \LaTeX\
+como editor según formato adjunto (archivo \emph{Template for Report.tex})
+y puede utilizarse como guía, reemplazando este contenido. Se requieren los
+archivos \emph{revcoles.cls}, \emph{references.bib} y \emph{graph\_example.eps}.%
+%
+\keywords{Formato en \LaTeX\ para documentos, carrera de Estadística}
+\end{mainabstract}
+\end{comment}
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para colocar el resumen en el idioma secundario y las palabras clave
+% !!No dejar salto de línea entre el resumen y el comando \keywords{.}¡¡
+% **** --------------------------------------------------------------------------------
+\begin{comment}
+\begin{secondaryabstract}
+This document gives the instructions to prepare a \LaTeX\ version of the graduation project of undergraduate in
+Statistics to first semester of 2008. The document is written using a \LaTeX\ format (file \emph{Plantilla para trabajo
+de grado.tex}) and can be used as a guideline just replacing its contents. It is necessary to use also the files
+\emph{revcoles.cls}, \emph{references.bib} and \emph{graph\_example.eps}.
+%
+\keywords{\LaTeX\ format for documents, undergraduate in Statistics}
+\end{secondaryabstract}
+
+\end{comment}% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Título de la primera sección
+% **** --------------------------------------------------------------------------------
+\section{Introducción}
+~\\ En este trabajo evaluaremos la presencia de multicolinealidad en el modelo lineal ajustado para los 500 datos seleccionados de la base de datos 'cadata'. Se dará una presentación formal de la multicolinealidad y se mostraran algunas consecuencias que tiene la presencia de este, además, se describirán y se aplicarán distintos métodos para verificar la presencia o ausencia de esta en nuestro modelo lineal ajustado, posteriormente se tratara de solucionar esto, llevando a cabo estimación por PCR(regresión por componentes principales) y finalmente, se concluirá acerca del modelo teniendo en cuenta los resultados de los métodos aplicados y de la estimación por PCR comparada con los estimadores por MCO(mínimos cuadrados ordinarios) .
+\section{Modelo planteado}
+~\\ El modelo sobre el cuál se va a evaluar la presencia de la multicolinealidad, es el modelo que se planteó en la tarea 1, que pretendía explicar la variable 'Valor mediano de las viviendas' con las variables explicativas 'Ingreso mediano','Edad mediana de la vivienda','Total de habitaciones','Total de dormitorios','Población' y 'Hogares'. El modelo planteado para estas variables, sin hacer transformación ni selección de estas es:
+$$ValorMediano =\beta_{0}+\beta_{1}(IngresoMediano)+\beta_{2}(EdadMediana)+\beta_{3}(TotalDeHabitaciones)$$
+$$+\beta_{4}(TotalDeDormitorios)+\beta_{5}(Poblacion)+\beta_{6}(Hogares) $$
+
+\section{Multicolinealidad}
+~\\La multicolinealidad implica una dependencia casi lineal entre los regresores, los cuales son las columnas de la matriz X, por lo que es claro que una dependencia lineal exacta causaría una matriz $X^{T}X$ singular. La presencia de dependencias casi lineales puede influir en forma dramática sobre la capacidad de estimar coeficientes de regresión afectando la precisión de las estimaciones. Cuando existe multicolinealidad en nuestro modelo, el análisis por mínimos cuadrados puede ser totalmente inadecuado.
+~\\La multicolinealidad se da por cuatro fuentes principales:
+\begin{itemize}
+\item[1.]El método de recolección de datos que se empleó:Puede originar problemas de multicolinealidad cuando el analista sólo muestrea un subespacio de la región de los regresores definidos.
+\item[2.]Restricciones en el modelo o en la población:Las restricciones en el modelo o en la población que se muestrea pueden causar multicolinealidad; por ejemplo, supóngase que una empresa eléctrica está investigando el efecto del ingreso familiar $(X_{l})$ y el tamaño de la vivienda $(X_{2})$ sobre el consumo eléctrico residencial.En este ejemplo, una restricción física en la población fue lo que causó este fenómeno: las familias que tienen ingresos mayores en general tienen casas mayores que las familias de menores ingresos, cuando hay restricciones físicas como ésta, habrá multicolinealidad independientemente del método de muestreo que se emplee.
+\item[3.]Especificación del modelo:También se puede inducir la multicolinealidad por la elección del modelo. Por ejemplo,al agregar términos polinomiales a un modelo de regresión se produce un deterioramiento en $X^{T}X$, además, si el rango de X es pequeño, al agregar un término en $X^{2}$ puede producirse una multicolinealidad importante. 
+\item[4.]Un modelo sobredefinido:Cuando se tienen mas variables regresoras que observaciones se puede generar un problema de multicolinealidad.
+\end{itemize}
+~\\Una multicolinealidad fuerte entre los regresores del modelo,da como resultado grandes varianzas y covarianzas de los estimadores de coeficientes de regresión por mínimos cuadrados.Esto implica que distintas muestras tomadas con los mismos valores de X podrían ocasionar estimaciones muy diferentes de los parámetros del modelo.
+\section{Métodos para detectar la multicolinealidad}
+~\\Para este trabajo se utilizaran los métodos de diagnostico expuestos en el libro \cite{Reg}, que son los siguientes:
+\begin{itemize}
+\item[1.]Examen de la matriz de correlación:Una medida muy sencilla de la multicolinealidad es la inspección de los elementos $r_{ij}$ no diagonales en la matriz de correlaciones. Si los regresores $x_{i}$ y $x_{j}$ son casi linealmente dependientes $|r_{ij}|$ será próximo a 1. Para nuestros datos, la matriz de correlaciones es la siguiente:
+
+ ~\\\[R=
+\left( \begin{array}{cccccc}
+ 1 & 0.01725 & 0.07903 & -0.18136 & -0.16257 & -0.16049 \\ 
+   & 1       & -0.31169& -0.17024 & -0.26517 & -0.14456 \\
+   &         & 1       & 0.86207  & 0.85768  & 0.86527 \\
+   &         &         & 1        & 0.83406  & 0.98870 \\
+   &         &         &          & 1        & 0.85391 \\
+   &         &         &          &          & 1
+\end{array} \right) \]
+
+~\\La matriz de correlaciones R, nos muestra perfectamente la alta correlación que existe entre las últimas 4 variables regresoras o explicativas (Total de habitaciones, total de dormitorios, población y hogares) , por lo cuál es casi evidente que una o varías de estas sobran en el modelo y pueden ocasionar multicolinealidad.
+
+\item[2.]Factores de inflación de varianza:Los elementos diagonales de la matriz $C=(X^{T}X)^{-1}$ son muy útiles para detectar la multicolinealidad. $C_{jj}$, el j-ésimo elemento diagonal de C se puede escribir en la forma $C_{jj} = (1 - R_{j}^2)^-1$ siendo $R_{j}^2$ el coeficiente de determinación obtenido cuando se hace la regresión de $x_{j}$ respecto a los demás $p - 1$ regresores. Si $x_{j}$ es casi ortogonal a los regresores restantes, $R_{j}^2$ es pequeño y $C_{jj}$ es cercano a 1, mientras que si $x_{j}$ es casi linealmente dependiente en algún subconjunto de los regresores restantes, $R_{j}^2$ es casi lineal y $C_{jj}$ es grande. Como la varianza de los j-ésimos coeficientes de regresión es $C_{jj}\sigma^2$ se puede considerar que $C_{jj}$ es el factor en el que aumenta la varianza de $\hat{\beta_{j}}$ debido a dependencias casi lineales entre los regresores.
+~\\Entonces se define el factor de inflación de varianza como: 
+$$VIF_{j}=C_{jj}=(1-R^2_{j})^{-1}$$
+~\\El factor VIF (de variance inflation factor) para cada término del modelo mide el efecto combinado que tienen las dependencias entre los regresores sobre la varianza de ese término. Si hay uno o más VIF grandes, hay multicolinealidad. El criterio dice que si cualquiera de los VIF es mayor que 5 o 10, es indicio de que los coeficientes asociados de regresión están mal estimados debido a la multicolinealidad.
+~\\Los $VIF_{i}$ para este modelo son:
+~\\\begin{tabular}{llllllll}
+\hline 
+VARIABLE & Ing.Mediano & Edad Mediana & T.Habitaciones & T.Dormitorios & Población & Hogares \\ 
+\hline 
+VIF & 1.565795 & 1.271698 & 8.203393 & 52.2694 & 5.675371 & 56.12648 & \\ 
+\hline 
+\end{tabular} 
+
+\end{itemize}
+
+
+
+
+
+
+
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.45]{FigurasUV/4.pdf}
+  \caption{Correlograma de los residuales}\label{figura1}
+\end{figure}
+~\\ En esta gráfica se puede observar que la autocorrelación de los errores, es distinta de cero, ya que hay varías barras que se salen del intervalo (lineas azules) que fue construido con un 95\% de confianza, entonces, se puede rechazar $H_{0}$ y concluir que si existe algún tipo de correlación en los errores.
+
+
+\section{Punto 4:Conclusiones del modelo ajustado con respecto al supuesto}
+~\\ Observando las 4 pruebas realizadas, podemos ver que en la primera( la prueba gráfica), hay muchas barras o correlaciones que se nos salen de los intervalos de confianza, por lo cuál se rechazo $H_{0}$ y se concluyo que con respecto a esa prueba no hay independencia en los errores, y con respecto a las pruebas estadísticas como tal (Rachas, Durbin-watson y Ljung-Box), vimos que los p valores de las tres pruebas son demasiado bajos, mucho mas bajos que cualquier nivel de significancia propuesto, por lo cuál en esas tres pruebas también se rechazo $H_{0}$, lo cuál confirma la existencia de correlación en los errores del modelo.
+
+~\\Teniendo en cuenta lo anterior, lo más común y razonable es concluir que nuestro modelo ajustado no cumple con este supuesto de independencia en los errores, por lo cuál diríamos que lo recomendable sería no usar este modelo. Sin embargo, los errores podrían ser independientes aún cuando los residuos no lo sean, y el supuesto se hace para los errores mas no para los residuos, pero eso no hay forma de probarlo a ciencia cierta, sin embargo hay que tener muy en cuenta los resultados obtenidos y queda a criterio de la persona si ignora estos resultados.
+
+
+
+
+
+
+\nocite{Behar}
+\nocite{supuestos}
+\nocite{Reg}
+\nocite{F}
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Fin del cuerpo del documento
+% **** --------------------------------------------------------------------------------
+% **** --------------------------------------------------------------------------------
+% Espacio para colocar el nombre del archivo *.bib (sin la extensión .bib) que contiene
+% las referencias bibliográficas del artículo utilizando el estilo bibliográfico BibTeX
+% "\referencias{.}"
+% **** --------------------------------------------------------------------------------
+\bibliography{references}
+% //// --------------------------------------------------------------------------------
+% //// --------------------------------------------------------------------------------
+    \appendix% !no modificar esta línea¡
+% -------------------------------------------------------------------------------------
+% Espacio para ubicar los apéndices: tablas y gráficas
+% **** --------------------------------------------------------------------------------
+
+
+% -------------------------------------------------------------------------------------
+% Fin del artículo
+% **** --------------------------------------------------------------------------------
+\end{document}
