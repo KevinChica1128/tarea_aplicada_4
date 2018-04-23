@@ -60,6 +60,7 @@ summary(modho)
 VIF(modho)   #Paquete
 Rho2=0.9822       #A mano
 VIFho=(1-Rho2)^(-1)
+
 #ANALISIS DE VALORES PROPIOS
 eigen(t(X)%*%X)
 k=max(eigen(t(X)%*%X)$values)/min(eigen(t(X)%*%X)$values)

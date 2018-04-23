@@ -174,6 +174,23 @@ VIF & 1.565795 & 1.271698 & 8.203393 & 52.2694 & 5.675371 & 56.12648 & \\
 \hline 
 \end{tabular} 
 
+\item[3.]Análisis del eigensistema de $X^{T}X$:
+~\\Las raíces características, o eigenvalores o valores propios de $X^{T}X$, por ejemplo $\lambda_{1},\lambda_{2},...,\lambda_{p}$ se pueden usar para medir el grado de multicolinealidad en los datos. Si hay una o más dependencias casi lineales en los datos, una o más de las raíces características será pequeña. Uno o más eigenvalores pequeños implican que hay dependencias casi lineales entre las columnas de X. Algunos analistas prefieren examinar el número de condición de $X^{T}X$, que se define como
+$$k=\frac{\lambda_{max}}{\lambda_{min}}$$
+~\\En general, si el número de condición es menor que 100, no hay problema grave de multicolinealidad. Los números de condición de 100 a 1 000 implican multicolinealidad de moderada a fuerte, y si k es mayor que 1 000, es indicio de una fuerte multicolinealidad.
+Los Índices de condición de la matriz $X^{T}X$ son
+$$k_{j}=\frac{\lambda_{max}}{\lambda_{j}} ; j=1,2,...,´p$$
+~\\La cantidad de índices de condición que son grandes (digamos, $\geq 1000$) es una medida útil de la cantidad de dependencias casi lineales en $X^{T}X$.
+~\\Los valores propios para la matriz $X^{T}X$ correspondiente a nuestros datos son:
+~\\$\lambda_{1}=5899151649,\lambda_{2}=71014417,\lambda_{3}=22677581,\lambda_{4}=2338923,\lambda_{5}=617446.6,\lambda_{6}=66680.87,\lambda_{7}=953.785,\lambda_{8}=248.5233$
+~\\De aquí, tenemos que $\lambda_{max}=5899151649$ y $\lambda_{min}=248.5233$, por lo tanto el número de condición es:
+$$k=\frac{\lambda_{max}}{\lambda_{min}}=\frac{5899151649}{248.5233}=23736815.22$$
+~\\Y los indices de condición son:
+~\\$$k_{1}=\frac{5899151649}{5899151649}=1,k_{2}=\frac{5899151649}{71014417}=83.069775,k_{3}=\frac{5899151649}{22677581}=260.131433$$
+~\\$$k_{4}=\frac{5899151649}{2338923}=2522.165821,k_{5}=\frac{5899151649}{617446.6}=9554.10824,k_{6}=\frac{5899151649}{66680.87}=88468.42654$$
+~\\$$k_{7}=\frac{5899151649}{953.785}=6184991.008,k_{8}=\frac{5899151649}{248.5233}=23736815.22$$
+
+
 \end{itemize}
 
 
