@@ -18,7 +18,7 @@ residuales<-residuals(Regresion)
 
 #Matriz de correlaciones:
 X = cbind(Ingreso=cadata$Ingreso_mediano,Edad=cadata$Edad_mediana_de_la_vivienda,Habitaciones=cadata$Total_de_habitaciones,
-          Dormitorios=cadata$Total_de_dormitorios,Poblacion=cadata$Poblacion,Hogares=cadata$Hogares,Latitud=cadata$Latitud,Longitud=cadata$Longitud)
+          Dormitorios=cadata$Total_de_dormitorios,Poblacion=cadata$Poblacion,Hogares=cadata$Hogares)
 R = cor(X)
 R
 
@@ -70,3 +70,30 @@ install.packages("pls")
 library(pls)
 regresion_pcr=pcr(formula=cadata$Valor_mediano_de_la_casa ~ cadata$Ingreso_mediano+cadata$Edad_mediana_de_la_vivienda+cadata$Total_de_habitaciones+cadata$Total_de_dormitorios+cadata$Poblacion+cadata$Hogares)
 summary(regresion_pcr)
+
+#Determinante de la matriz de correlaciones:
+det(R)
+
+#Método (PCR) paso a paso:
+#La matriz X es:
+X 
+#La matriz X* (reescalada) es:
+x1<-cadata$Ingreso_mediano
+x2<-cadata$Edad_mediana_de_la_vivienda
+x3<-cadata$Total_de_habitaciones
+x4<-cadata$Total_de_dormitorios
+x5<-cadata$Poblacion
+x6<-cadata$Hogares
+X1<-(x1-mean(x1))/sqrt(sum(x1^2)-(length(x1)*mean(x1)^2))
+X2<-(x2-mean(x2))/sqrt(sum(x2^2)-(length(x2)*mean(x2)^2))
+X3<-(x3-mean(x3))/sqrt(sum(x3^2)-(length(x3)*mean(x3)^2))
+X4<-(x4-mean(x4))/sqrt(sum(x4^2)-(length(x4)*mean(x4)^2))
+X5<-(x5-mean(x5))/sqrt(sum(x5^2)-(length(x5)*mean(x5)^2))
+X6<-(x6-mean(x6))/sqrt(sum(x6^2)-(length(x6)*mean(x6)^2))
+Xr<-cbind(X1,X2,X3,X4,X5,X6)
+#X*t X en forma de correlacion es:
+Rr<-t(Xr)%*%Xr
+eigen(Rr)
+T<-eigen(Rr)$vectors
+Z<-Xr%*%T
+A<-t(Z)%*%Z

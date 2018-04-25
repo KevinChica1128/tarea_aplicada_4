@@ -7,6 +7,7 @@
 % "\documentclass[english]{revcoles}" o por "\documentclass[portuguese]{revcoles}"
 % **** --------------------------------------------------------------------------------
 \documentclass[report,oneside]{revcoles}
+\usepackage[top=2cm,,bottom=1.5cm]{geometry}
 \labeldocument[
 university = Universidad del Valle,
 faculty = Facultad de Ingeniería,
@@ -185,26 +186,65 @@ $$k_{j}=\frac{\lambda_{max}}{\lambda_{j}} ; j=1,2,...,´p$$
 ~\\$\lambda_{1}=5899151649,\lambda_{2}=71014417,\lambda_{3}=22677581,\lambda_{4}=2338923,\lambda_{5}=617446.6,\lambda_{6}=66680.87,\lambda_{7}=953.785,\lambda_{8}=248.5233$
 ~\\De aquí, tenemos que $\lambda_{max}=5899151649$ y $\lambda_{min}=248.5233$, por lo tanto el número de condición es:
 $$k=\frac{\lambda_{max}}{\lambda_{min}}=\frac{5899151649}{248.5233}=23736815.22$$
+~\\El cuál es demasiado grande, lo que nos indica una multicolinealidad grave en nuestro modelo con todas las variables.
 ~\\Y los indices de condición son:
 ~\\$$k_{1}=\frac{5899151649}{5899151649}=1,k_{2}=\frac{5899151649}{71014417}=83.069775,k_{3}=\frac{5899151649}{22677581}=260.131433$$
 ~\\$$k_{4}=\frac{5899151649}{2338923}=2522.165821,k_{5}=\frac{5899151649}{617446.6}=9554.10824,k_{6}=\frac{5899151649}{66680.87}=88468.42654$$
 ~\\$$k_{7}=\frac{5899151649}{953.785}=6184991.008,k_{8}=\frac{5899151649}{248.5233}=23736815.22$$
-
-
+~\\Podemos ver que 5 indices de condición son mayores que 1000 y 1 mas es mayor que 100, lo que nos dice que al menos hay 5 fuertes dependencias casi lineales en los datos de nuestro modelo (columnas de $X^{T}X$).
+\item[4.]Determinante de $X^{T}X$ en forma de correlación: Se puede usar el determinante de $X^{T}X$ como índice de colinealidad; ya que la matriz $X^{T}X$ está en forma de correlación, el intervalo de posibles valores del determinante es $0\leq |X^{T}X| \leq 1$. Si $|X^{T}X| = 1$, los regresores son ortogonales, mientras que si $|X^{T}X|=0$, hay una dependencia lineal exacta entre ellos. El grado de multicolinealidad se agrava a medida que $|X^{T}X|$ tiende a cero. Si bien esta medida de multicolinealidad es fácil de aplicar, no proporciona información alguna sobre el origen de la multicolinealidad.
+~\\Para nuestro caso el determinante de la matriz de correlaciones $X^{T}X$ es:
+$$|X^{T}X|=|R|=0.000000404$$
+~\\Por lo cual podemos re afirmar que hay una multicolinealidad grave en nuestro modelo.
 \end{itemize}
 
+\section{Regresión por componentes principales (PCR)}
+~\\Los coeficientes de regresión se pueden obtener por un procedimiento denominado regresión por componentes principales. Sea la forma canónica del modelo:
+$$y=Z\alpha+\epsilon$$
+~\\Donde $Z=XT$, $\alpha=T'\beta$,  $T'X'XT=Z'Z=A$
+~\\Y $A=diag(\lambda_{1},\lambda_{2},...,\lambda_{p})$ es una matriz diagonal de tamapo p x p de los valores propios de $X'X$ y T es una matriz ortogonal cuyas columnas son los vectores propios asociados a los valores propios $\lambda_{1},\lambda_{2},...,\lambda_{p}$. Las columnas de Z, definen un nuevo conjunto de regresores ortogonales, como:
+$$Z=[Z_{1},Z_{2},...,Z_{p}]$$
+~\\Se llaman componentes principales.
+~\\Entonces, el estimador de $\hat{\alpha}$ por minimos cuadrados es
+$$\hat{\alpha}=(Z'Z)^{-1}Z'y= A^{-1}Z'y$$
+~\\Y la matriz de covarianzas de $\hat{\alpha}$ es 
+$$Var(\hat{\alpha})=\sigma^2 (Z'Z)^{-1}=\sigma^2 A^{-1}$$
+~\\El método de regresión por componentes principales combate a la multicolinealidad,
+al usar en el modelo menos componentes que el conjunto completo de componentes principales. Para obtener el estimador de componentes principales, se supone que los regresores están ordenados por valores propios decrecientes, $\lambda_{1}\geq\lambda_{2}\geq...\geq\lambda_{p}>0$. Supóngase que los últimos s eigenvalores de éstos son aproximadamente iguales a cero. En la regresión por componentes principales, se eliminan los componentes principales que correspondan a eigenvalores cercanos a cero, y se aplican los mínimos cuadrados a los componentes restantes.
+Esto es,
+$$\hat{\alpha_{PC}}=B\hat{\alpha}$$
+~\\donde $b_{1}=b_{2}=...=b_{p-s}=1$, y $b_{p-s+1}=b_{p-s+2}=...=b_{p}=0$.Así, el estimador de componentes principales es
+$$\hat{\alpha_{PC}}=\left[\begin{matrix}
+\hat{\alpha_{1}} & \hat{\alpha_{2}} & \cdots & \hat{\alpha_{p-s}} & | & 0 & 0 & \cdots & 0
+\end{matrix}\right]$$ 
+
+~\\ o, en términos de los regresores normalizados,
+$$\hat{\beta}_{PC}=T\hat{\alpha}_{PC}=\sum\limits_{j=1}^{p-1}\lambda_{j}^{-1}t'_{j}X'yt_{j}$$
+
+\subsection{Estimación de nuestro modelo por PCR:}
+~\\Para hacer uso de la regresión por componentes principales en nuestro modelo, se comienza con la transformación lineal $Z=XT$ que transforma los regresores estandarizados originales en un conjunto ortogonal de variables (los componentes principales). Los valores propios $\lambda_{j}$ y la matriz T para los 500 datos seleccionados de la base de datos 'cadata' se muestran en la siguiente tabla.La matriz T indica la relación entre Z y los regresores estandarizados. Por ejemplo, la relación entre $Z_{1}$ y los regresores estandarizados es 
+$$z_{1}=-0.0785x_{1}-0.1609x_{2}+0.4854x_{3}+0.4987x_{4}+0.4831x_{5}+0.5002x_{6}$$
+
+~\\\begin{tabular}{p{1.8cm}p{1.8cm}p{2cm}p{1.8cm}p{1.8cm}p{1.8cm}|p{2.5cm}}
+\hline 
+ &  & VECTORES PROPIOS &  &  &  & VALORES PROPIOS $\lambda_{j}$ \\ 
+\hline 
+-0.07851439 & 0.88436486 & -0.399610859 & 0.03866445 & 0.2232029 & -0.02703696 & 3.72181333 \\ 
+\hline 
+-0.16091266 & -0.38609154 & -0.891249689 & -0.14164674 & -0.1006961 & -0.02260359 & 1.05255886 \\ 
+\hline 
+0.48537035 & 0.22689357 & -0.072328309 & -0.13160716 & -0.8298092 & 0.04242423 & 0.93404888 \\ 
+\hline 
+0.49876670 & -0.09577328 & -0.124700897 & 0.47098126 & 0.1664129 & -0.69064631 & 0.19394997 \\ 
+\hline 
+0.48308811 & -0.02353949 & 0.003937038 & -0.77674426 & 0.3947270 & -0.08315767 & 0.08822446 \\ 
+\hline 
+0.50021584 & -0.08732010 & -0.158707136 & 0.36873545 & 0.2606814 & 0.71627560 & 0.00940450 \\ 
+\hline 
+\end{tabular} 
 
 
 
-
-
-
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=0.45]{FigurasUV/4.pdf}
-  \caption{Correlograma de los residuales}\label{figura1}
-\end{figure}
 
 
 

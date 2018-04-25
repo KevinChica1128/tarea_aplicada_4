@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.9.23)  22 APR 2018 19:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.9.23)  24 APR 2018 21:36
 entering extended mode
 **"./Tarea4 Estadistica Aplicada.tex"
 ("Tarea4 Estadistica Aplicada.tex"
@@ -292,38 +292,62 @@ Package: harvard
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )))
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count130
+\Gm@cntv=\count131
+\c@Gm@tempcnt=\count132
+\Gm@bindingoffset=\dimen133
+\Gm@wd@mp=\dimen134
+\Gm@odd@mp=\dimen135
+\Gm@even@mp=\dimen136
+\Gm@layoutwidth=\dimen137
+\Gm@layoutheight=\dimen138
+\Gm@layouthoffset=\dimen139
+\Gm@layoutvoffset=\dimen140
+\Gm@dimlist=\toks31
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
 ("Tarea4 Estadistica Aplicada.aux"
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 )
 \openout1 = `"Tarea4 Estadistica Aplicada.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
 
 (C:\Users\KEVINSTEVEN\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count130
-\scratchdimen=\dimen133
+\scratchcounter=\count133
+\scratchdimen=\dimen141
 \scratchbox=\box54
-\nofMPsegments=\count131
-\nofMParguments=\count132
-\everyMPshowfont=\toks31
-\MPscratchCnt=\count133
-\MPscratchDim=\dimen134
-\MPnumerator=\count134
-\makeMPintoPDFobject=\count135
-\everyMPtoPDFconversion=\toks32
+\nofMPsegments=\count134
+\nofMParguments=\count135
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count136
+\MPscratchDim=\dimen142
+\MPnumerator=\count137
+\makeMPintoPDFobject=\count138
+\everyMPtoPDFconversion=\toks33
 ) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -365,83 +389,146 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.pdf,.png,.jpg,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Info: Redefining \. on input line 41.
-LaTeX Info: Redefining \% on input line 41.
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 52.
 
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(92.14519pt, 430.00462pt, 92.14519pt)
+* v-part:(T,H,B)=(56.9055pt, 695.38536pt, 42.67912pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=430.00462pt
+* \textheight=695.38536pt
+* \oddsidemargin=19.8752pt
+* \evensidemargin=19.8752pt
+* \topmargin=-44.43613pt
+* \headheight=12.0pt
+* \headsep=17.07164pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=5.69054pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=-15.36446pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 53.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 52.
+LaTeX Font Info:    Try loading font information for U+msb on input line 53.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 52.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 53.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 
-LaTeX Warning: Characters dropped after `\end{comment}' on input line 126.
+LaTeX Warning: Characters dropped after `\end{comment}' on input line 127.
 
 [1
 
 {C:/Users/KEVINSTEVEN/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 152--152
+Overfull \hbox (12.97054pt too wide) in paragraph at lines 149--150
+\T1/cmr/m/n/10 Para es-te tra-ba-jo se uti-li-za-ran los mé-to-dos de diag-nos-
+ti-co ex-pues-tos en el li-bro ([]Douglas C. Montgomery[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--153
 
  []
 
-[2]
-Overfull \hbox (44.85179pt too wide) in paragraph at lines 166--176
+
+Overfull \hbox (70.09125pt too wide) in paragraph at lines 167--177
 [] 
  []
 
+[2]
 Missing character: There is no ´ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--189
+Overfull \hbox (25.0033pt too wide) in paragraph at lines 183--188
+\OML/cmm/m/it/10 [] \OT1/cmr/m/n/10 = 5899151649\OML/cmm/m/it/10 ; [] \OT1/cm
+r/m/n/10 = 71014417\OML/cmm/m/it/10 ; [] \OT1/cmr/m/n/10 = 22677581\OML/cmm/m/
+it/10 ; [] \OT1/cmr/m/n/10 = 2338923\OML/cmm/m/it/10 ; [] \OT1/cmr/m/n/10 = 6
+17446\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 6\OML/cmm/m/it/10 ; [] \OT1/cmr/m/n/10 
+= 66680\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 87\OML/cmm/m/it/10 ; [] \OT1/cmr/m/n/
+10 =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--191
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
+Overfull \hbox (23.48817pt too wide) detected at line 192
+\OML/cmm/m/it/10 k[] \OT1/cmr/m/n/10 = [] = 2522\OML/cmm/m/it/10 :\OT1/cmr/m/n/
+10 165821\OML/cmm/m/it/10 ; k[] \OT1/cmr/m/n/10 = [] = 9554\OML/cmm/m/it/10 :\O
+T1/cmr/m/n/10 10824\OML/cmm/m/it/10 ; k[] \OT1/cmr/m/n/10 = [] = 88468\OML/cmm/
+m/it/10 :\OT1/cmr/m/n/10 42654
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
 
  []
 
-<FigurasUV/4.pdf, id=24, 1027.84pt x 545.03625pt>
-File: FigurasUV/4.pdf Graphic file (type pdf)
- <use FigurasUV/4.pdf>
-Package pdftex.def Info: FigurasUV/4.pdf used on input line 205.
-(pdftex.def)             Requested size: 462.52373pt x 245.26405pt.
-
-Overfull \hbox (7.27965pt too wide) in paragraph at lines 205--206
- [][] 
+[3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 230--230
+[]|\T1/cmr/m/n/10 VECTORES
  []
 
-("Tarea4 Estadistica Aplicada.bbl" [3]) [4 <./FigurasUV/4.pdf>]
-("Tarea4 Estadistica Aplicada.aux"
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--231
+[]|\T1/cmr/m/n/10 VALORES
+ []
+
+
+Overfull \hbox (38.50797pt too wide) in paragraph at lines 228--245
+[] 
+ []
+
+("Tarea4 Estadistica Aplicada.bbl") [5] ("Tarea4 Estadistica Aplicada.aux"
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 5278 strings out of 493334
- 73209 string characters out of 3139234
- 148902 words of memory out of 3000000
- 8698 multiletter control sequences out of 15000+200000
- 20261 words of font info for 59 fonts, out of 3000000 for 9000
+ 5753 strings out of 493334
+ 80243 string characters out of 3139234
+ 162039 words of memory out of 3000000
+ 9161 multiletter control sequences out of 15000+200000
+ 21126 words of font info for 60 fonts, out of 3000000 for 9000
  1145 hyphenation exceptions out of 8191
- 43i,8n,40p,920b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,10n,40p,920b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\KEVINSTEVEN\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\
 dpi600\ecbx1000.pk> <C:\Users\KEVINSTEVEN\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
 our\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\KEVINSTEVEN\AppData\Local\MiKTeX\
-2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc0900.pk> <C:\Users\KEVINSTEVEN\AppDa
+2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\KEVINSTEVEN\AppDa
 ta\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti0900.pk> <C:\Users\K
 EVINSTEVEN\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800
 .pk> <C:\Users\KEVINSTEVEN\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
@@ -459,9 +546,9 @@ m/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on "Tarea4 Estadistica Aplicada.pdf" (4 pages, 181018 bytes).
+Output written on "Tarea4 Estadistica Aplicada.pdf" (5 pages, 193277 bytes).
 PDF statistics:
- 368 PDF objects out of 1000 (max. 8388607)
+ 381 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
