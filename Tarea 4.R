@@ -100,6 +100,7 @@ X4<-(x4-mean(x4))/sqrt(sum(x4^2)-(length(x4)*mean(x4)^2))
 X5<-(x5-mean(x5))/sqrt(sum(x5^2)-(length(x5)*mean(x5)^2))
 X6<-(x6-mean(x6))/sqrt(sum(x6^2)-(length(x6)*mean(x6)^2))
 Xr<-cbind(X1,X2,X3,X4,X5,X6)
+Y<-(y-mean(y))/sqrt(sum(y^2)-(length(y)*mean(y)^2))
 #X*t X en forma de correlacion es:
 Rr<-t(Xr)%*%Xr
 #Estimación por PCR:
@@ -108,6 +109,6 @@ eigen(Rr)
 T<-eigen(Rr)$vectors
 Z<-Xr%*%T
 A<-t(Z)%*%Z
-alfae<-solve(A)%*%t(Z)%*%y
+alfae<-solve(A)%*%t(Z)%*%Y
 componentesprincipales<-c(1,1,1,1,0,0)*alfae
 Betae<-T%*%alfae #Beta con 4 componentes principales
