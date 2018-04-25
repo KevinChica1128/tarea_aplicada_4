@@ -93,7 +93,12 @@ X6<-(x6-mean(x6))/sqrt(sum(x6^2)-(length(x6)*mean(x6)^2))
 Xr<-cbind(X1,X2,X3,X4,X5,X6)
 #X*t X en forma de correlacion es:
 Rr<-t(Xr)%*%Xr
+#Estimación por PCR:
+y<-cadata$Valor_mediano_de_la_casa
 eigen(Rr)
 T<-eigen(Rr)$vectors
 Z<-Xr%*%T
 A<-t(Z)%*%Z
+alfae<-solve(A)%*%t(Z)%*%y
+componentesprincipales<-c(1,1,1,1,0,0)*alfae
+Betae<-T%*%alfae #Beta con 4 componentes principales
