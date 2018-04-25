@@ -65,14 +65,23 @@ VIFho=(1-Rho2)^(-1)
 eigen(t(X)%*%X)
 k=max(eigen(t(X)%*%X)$values)/min(eigen(t(X)%*%X)$values)
 ki=c(max(eigen(t(X)%*%X)$values)/eigen(t(X)%*%X)$values)
+#Determinante de la matriz de correlaciones:
+det(R)
 #METODO (PCR) componentes principales
 install.packages("pls")
 library(pls)
 regresion_pcr=pcr(formula=cadata$Valor_mediano_de_la_casa ~ cadata$Ingreso_mediano+cadata$Edad_mediana_de_la_vivienda+cadata$Total_de_habitaciones+cadata$Total_de_dormitorios+cadata$Poblacion+cadata$Hogares)
 summary(regresion_pcr)
+fitted(regresion_pcr, comps = 1:4)
+resid(regresion_pcr, comps = 1:4)
+coef(regresion_pcr, comps = 1:4)
 
-#Determinante de la matriz de correlaciones:
-det(R)
+## Eigenvalues can be extracted
+eigenvals(regresion_pcr)
+
+## screeplot method
+screeplot(regresion_pcr)
+
 
 #Método (PCR) paso a paso:
 #La matriz X es:
