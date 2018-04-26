@@ -174,7 +174,7 @@ VARIABLE & Ing.Mediano & Edad Mediana & T.Habitaciones & T.Dormitorios & Poblaci
 VIF & 1.565795 & 1.271698 & 8.203393 & 52.2694 & 5.675371 & 56.12648 & \\ 
 \hline 
 \end{tabular} 
-
+~\\Podemos ver que hay 2 VIF mayores que 5 y 2 VIF mayores que 10, entonces podemos afirmar que los coeficientes de regresión asociados a estas variables están mal estimados debido a la multicolinealidad.
 \item[3.]Análisis del eigensistema de $X^{T}X$:
 ~\\Las raíces características, o eigenvalores o valores propios de $X^{T}X$, por ejemplo $\lambda_{1},\lambda_{2},...,\lambda_{p}$ se pueden usar para medir el grado de multicolinealidad en los datos. Si hay una o más dependencias casi lineales en los datos, una o más de las raíces características será pequeña. Uno o más eigenvalores pequeños implican que hay dependencias casi lineales entre las columnas de X. Algunos analistas prefieren examinar el número de condición de $X^{T}X$, que se define como
 $$k=\frac{\lambda_{max}}{\lambda_{min}}$$
@@ -182,20 +182,20 @@ $$k=\frac{\lambda_{max}}{\lambda_{min}}$$
 Los Índices de condición de la matriz $X^{T}X$ son
 $$k_{j}=\frac{\lambda_{max}}{\lambda_{j}} ; j=1,2,...,´p$$
 ~\\La cantidad de índices de condición que son grandes (digamos, $\geq 1000$) es una medida útil de la cantidad de dependencias casi lineales en $X^{T}X$.
-~\\Los valores propios para la matriz $X^{T}X$ correspondiente a nuestros datos son:
-~\\$\lambda_{1}=5899151649,\lambda_{2}=71014417,\lambda_{3}=22677581,\lambda_{4}=2338923,\lambda_{5}=617446.6,\lambda_{6}=66680.87,\lambda_{7}=953.785,\lambda_{8}=248.5233$
-~\\De aquí, tenemos que $\lambda_{max}=5899151649$ y $\lambda_{min}=248.5233$, por lo tanto el número de condición es:
-$$k=\frac{\lambda_{max}}{\lambda_{min}}=\frac{5899151649}{248.5233}=23736815.22$$
-~\\El cuál es demasiado grande, lo que nos indica una multicolinealidad grave en nuestro modelo con todas las variables.
+~\\Los valores propios para la matriz $X^{T}X=R$ (en forma de correlación) correspondiente a nuestros datos son:
+~\\$\lambda_{1}=3.72181333,\lambda_{2}=1.05255886,\lambda_{3}=0.93404888,\lambda_{4}=0.19394997,\lambda_{5}=0.08822446,\lambda_{6}=0.00940450$
+~\\De aquí, tenemos que $\lambda_{max}=3.72181333$ y $\lambda_{min}=0.00940450$, por lo tanto el número de condición es:
+$$k=\frac{\lambda_{max}}{\lambda_{min}}=\frac{3.72181333}{0.00940450}=395.7481344$$
+~\\El cuál es demasiado grande, lo que nos indica una multicolinealidad fuerte en nuestro modelo con todas las variables.
 ~\\Y los indices de condición son:
-~\\$$k_{1}=\frac{5899151649}{5899151649}=1,k_{2}=\frac{5899151649}{71014417}=83.069775,k_{3}=\frac{5899151649}{22677581}=260.131433$$
-~\\$$k_{4}=\frac{5899151649}{2338923}=2522.165821,k_{5}=\frac{5899151649}{617446.6}=9554.10824,k_{6}=\frac{5899151649}{66680.87}=88468.42654$$
-~\\$$k_{7}=\frac{5899151649}{953.785}=6184991.008,k_{8}=\frac{5899151649}{248.5233}=23736815.22$$
-~\\Podemos ver que 5 indices de condición son mayores que 1000 y 1 mas es mayor que 100, lo que nos dice que al menos hay 5 fuertes dependencias casi lineales en los datos de nuestro modelo (columnas de $X^{T}X$).
+~\\$$k_{1}=\frac{3.72181333}{3.72181333}=1,k_{2}=\frac{3.72181333}{1.05255886}=3.5359669,k_{3}=\frac{3.72181333}{0.93404888}=3.9846023$$
+~\\$$k_{4}=\frac{3.72181333}{0.19394997}=19.189553,k_{5}=\frac{3.72181333}{0.08822446}=42.18573092,k_{6}=\frac{3.72181333}{0.00940450}=395.7481344$$
+
+~\\Podemos ver que 1 indices de condición es mayor que 100, lo que nos dice que al menos hay 1 dependencias fuerte casi lineales en los datos de nuestro modelo (columnas de $X^{T}X$).
 \item[4.]Determinante de $X^{T}X$ en forma de correlación: Se puede usar el determinante de $X^{T}X$ como índice de colinealidad; ya que la matriz $X^{T}X$ está en forma de correlación, el intervalo de posibles valores del determinante es $0\leq |X^{T}X| \leq 1$. Si $|X^{T}X| = 1$, los regresores son ortogonales, mientras que si $|X^{T}X|=0$, hay una dependencia lineal exacta entre ellos. El grado de multicolinealidad se agrava a medida que $|X^{T}X|$ tiende a cero. Si bien esta medida de multicolinealidad es fácil de aplicar, no proporciona información alguna sobre el origen de la multicolinealidad.
 ~\\Para nuestro caso el determinante de la matriz de correlaciones $X^{T}X$ es:
-$$|X^{T}X|=|R|=0.000000404$$
-~\\Por lo cual podemos re afirmar que hay una multicolinealidad grave en nuestro modelo.
+$$|X^{T}X|=|R|=0.0005888233$$
+~\\Por lo cual podemos afirmar que hay una multicolinealidad grave en nuestro modelo.
 \end{itemize}
 
 \section{Regresión por componentes principales (PCR)}
@@ -242,9 +242,33 @@ $$z_{1}=-0.0785x_{1}-0.1609x_{2}+0.4854x_{3}+0.4987x_{4}+0.4831x_{5}+0.5002x_{6}
 0.50021584 & -0.08732010 & -0.158707136 & 0.36873545 & 0.2606814 & 0.71627560 & 0.00940450 \\ 
 \hline 
 \end{tabular} 
-
-
-
+~\\Y, el estimador de $\alpha$ es:
+ $$\hat{\alpha}=A^{-1}Z'y=\left[\begin{matrix}
+ -0.02697939 \\ 
+ 0.16597000 \\ 
+ -0.64338425 \\ 
+ 0.75560789 \\ 
+ -0.28640901 \\ 
+ 0.81285787
+ \end{matrix}\right]$$
+~\\Podemos ver que hay 3 valores propios muy cercanos a cero, por lo que esos no se tendrán en cuenta y nos quedaremos con las componentes principales correspondientes a los otros tres valores propios, entonces:
+$$\hat{\alpha_{PC}}=\left[\begin{matrix}
+ -0.02697939 \\ 
+ 0.16597000 \\ 
+ -0.64338425 \\ 
+0 \\ 
+ 0 \\ 
+ 0
+ \end{matrix}\right]$$
+~\\Y, los betas estimados con tres componentes principales son:
+$$\hat{\beta}_{PC}=T\hat{\alpha}_{PC}=\left[\begin{matrix}
+ 0.40599964 \\ 
+ 0.51367772 \\ 
+ 0.07109743 \\ 
+ 0.05087868 \\ 
+ -0.01947330 \\ 
+ 0.07412164
+ \end{matrix}\right]$$
 
 
 

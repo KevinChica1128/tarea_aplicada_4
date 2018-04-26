@@ -62,15 +62,17 @@ Rho2=0.9822       #A mano
 VIFho=(1-Rho2)^(-1)
 
 #ANALISIS DE VALORES PROPIOS
-eigen(t(X)%*%X)
-k=max(eigen(t(X)%*%X)$values)/min(eigen(t(X)%*%X)$values)
-ki=c(max(eigen(t(X)%*%X)$values)/eigen(t(X)%*%X)$values)
+eigen(R)$values
+k=max(eigen(R)$values)/min(eigen(R)$values)
+ki=c(max(eigen(R)$values)/eigen(R)$values)
 #Determinante de la matriz de correlaciones:
 det(R)
 #METODO (PCR) componentes principales
 install.packages("pls")
 library(pls)
-regresion_pcr=pcr(formula=cadata$Valor_mediano_de_la_casa ~ cadata$Ingreso_mediano+cadata$Edad_mediana_de_la_vivienda+cadata$Total_de_habitaciones+cadata$Total_de_dormitorios+cadata$Poblacion+cadata$Hogares)
+regresion_pcr=pcr(formula=cadata$Valor_mediano_de_la_casa ~ cadata$Ingreso_mediano+cadata$Edad_mediana_de_la_vivienda+
+                  cadata$Total_de_habitaciones+cadata$Total_de_dormitorios+cadata$Poblacion+cadata$Hogares
+                  )
 summary(regresion_pcr)
 fitted(regresion_pcr, comps = 1:4)
 resid(regresion_pcr, comps = 1:4)
@@ -101,8 +103,12 @@ X5<-(x5-mean(x5))/sqrt(sum(x5^2)-(length(x5)*mean(x5)^2))
 X6<-(x6-mean(x6))/sqrt(sum(x6^2)-(length(x6)*mean(x6)^2))
 Xr<-cbind(X1,X2,X3,X4,X5,X6)
 Y<-(y-mean(y))/sqrt(sum(y^2)-(length(y)*mean(y)^2))
+modeloreescalado<-lm(Y~X1+X2+X3+X4+X5+X6)
+modeloreescalado$coefficients
+summary(modeloreescalado)
 #X*t X en forma de correlacion es:
 Rr<-t(Xr)%*%Xr
+det(Rr)
 #Estimación por PCR:
 y<-cadata$Valor_mediano_de_la_casa
 eigen(Rr)
@@ -110,5 +116,6 @@ T<-eigen(Rr)$vectors
 Z<-Xr%*%T
 A<-t(Z)%*%Z
 alfae<-solve(A)%*%t(Z)%*%Y
-componentesprincipales<-c(1,1,1,1,0,0)*alfae
-Betae<-T%*%alfae #Beta con 4 componentes principales
+alfaec<-c(1,1,1,0,0,0)*alfae
+Betaest<-T%*%alfaec
+
