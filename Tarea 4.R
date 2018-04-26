@@ -76,7 +76,7 @@ regresion_pcr=pcr(formula=cadata$Valor_mediano_de_la_casa ~ cadata$Ingreso_media
 summary(regresion_pcr)
 fitted(regresion_pcr, comps = 1:4)
 resid(regresion_pcr, comps = 1:4)
-coef(regresion_pcr, comps = 1:4)
+coef(regresion_pcr, comps = 1:6)
 
 ## Eigenvalues can be extracted
 eigenvals(regresion_pcr)
@@ -119,3 +119,10 @@ alfae<-solve(A)%*%t(Z)%*%Y
 alfaec<-c(1,1,1,0,0,0)*alfae
 Betaest<-T%*%alfaec
 
+
+Rr1<-t(X)%*%X
+T1<-eigen(Rr1)$vectors
+Z1<-X%*%T1
+A1<-t(Z1)%*%Z1
+alfae1<-solve(A1)%*%t(Z1)%*%y
+Betaest1<-T1%*%alfae1

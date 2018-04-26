@@ -149,7 +149,6 @@ $$+\beta_{4}(TotalDeDormitorios)+\beta_{5}(Poblacion)+\beta_{6}(Hogares) $$
 ~\\Para este trabajo se utilizaran los métodos de diagnostico expuestos en el libro \cite{Reg}, que son los siguientes:
 \begin{itemize}
 \item[1.]Examen de la matriz de correlación:Una medida muy sencilla de la multicolinealidad es la inspección de los elementos $r_{ij}$ no diagonales en la matriz de correlaciones. Si los regresores $x_{i}$ y $x_{j}$ son casi linealmente dependientes $|r_{ij}|$ será próximo a 1. Para nuestros datos, la matriz de correlaciones es la siguiente:
-
  ~\\\[R=
 \left( \begin{array}{cccccc}
  1 & 0.01725 & 0.07903 & -0.18136 & -0.16257 & -0.16049 \\ 
@@ -161,7 +160,6 @@ $$+\beta_{4}(TotalDeDormitorios)+\beta_{5}(Poblacion)+\beta_{6}(Hogares) $$
 \end{array} \right) \]
 
 ~\\La matriz de correlaciones R, nos muestra perfectamente la alta correlación que existe entre las últimas 4 variables regresoras o explicativas (Total de habitaciones, total de dormitorios, población y hogares) , por lo cuál es casi evidente que una o varías de estas sobran en el modelo y pueden ocasionar multicolinealidad.
-
 \item[2.]Factores de inflación de varianza:Los elementos diagonales de la matriz $C=(X^{T}X)^{-1}$ son muy útiles para detectar la multicolinealidad. $C_{jj}$, el j-ésimo elemento diagonal de C se puede escribir en la forma $C_{jj} = (1 - R_{j}^2)^-1$ siendo $R_{j}^2$ el coeficiente de determinación obtenido cuando se hace la regresión de $x_{j}$ respecto a los demás $p - 1$ regresores. Si $x_{j}$ es casi ortogonal a los regresores restantes, $R_{j}^2$ es pequeño y $C_{jj}$ es cercano a 1, mientras que si $x_{j}$ es casi linealmente dependiente en algún subconjunto de los regresores restantes, $R_{j}^2$ es casi lineal y $C_{jj}$ es grande. Como la varianza de los j-ésimos coeficientes de regresión es $C_{jj}\sigma^2$ se puede considerar que $C_{jj}$ es el factor en el que aumenta la varianza de $\hat{\beta_{j}}$ debido a dependencias casi lineales entre los regresores.
 ~\\Entonces se define el factor de inflación de varianza como: 
 $$VIF_{j}=C_{jj}=(1-R^2_{j})^{-1}$$
@@ -190,7 +188,6 @@ $$k=\frac{\lambda_{max}}{\lambda_{min}}=\frac{3.72181333}{0.00940450}=395.748134
 ~\\Y los indices de condición son:
 ~\\$$k_{1}=\frac{3.72181333}{3.72181333}=1,k_{2}=\frac{3.72181333}{1.05255886}=3.5359669,k_{3}=\frac{3.72181333}{0.93404888}=3.9846023$$
 ~\\$$k_{4}=\frac{3.72181333}{0.19394997}=19.189553,k_{5}=\frac{3.72181333}{0.08822446}=42.18573092,k_{6}=\frac{3.72181333}{0.00940450}=395.7481344$$
-
 ~\\Podemos ver que 1 indices de condición es mayor que 100, lo que nos dice que al menos hay 1 dependencias fuerte casi lineales en los datos de nuestro modelo (columnas de $X^{T}X$).
 \item[4.]Determinante de $X^{T}X$ en forma de correlación: Se puede usar el determinante de $X^{T}X$ como índice de colinealidad; ya que la matriz $X^{T}X$ está en forma de correlación, el intervalo de posibles valores del determinante es $0\leq |X^{T}X| \leq 1$. Si $|X^{T}X| = 1$, los regresores son ortogonales, mientras que si $|X^{T}X|=0$, hay una dependencia lineal exacta entre ellos. El grado de multicolinealidad se agrava a medida que $|X^{T}X|$ tiende a cero. Si bien esta medida de multicolinealidad es fácil de aplicar, no proporciona información alguna sobre el origen de la multicolinealidad.
 ~\\Para nuestro caso el determinante de la matriz de correlaciones $X^{T}X$ es:
@@ -217,28 +214,21 @@ $$\hat{\alpha_{PC}}=B\hat{\alpha}$$
 $$\hat{\alpha_{PC}}=\left[\begin{matrix}
 \hat{\alpha_{1}} & \hat{\alpha_{2}} & \cdots & \hat{\alpha_{p-s}} & | & 0 & 0 & \cdots & 0
 \end{matrix}\right]$$ 
-
 ~\\ o, en términos de los regresores normalizados,
 $$\hat{\beta}_{PC}=T\hat{\alpha}_{PC}=\sum\limits_{j=1}^{p-1}\lambda_{j}^{-1}t'_{j}X'yt_{j}$$
 
 \subsection{Estimación de nuestro modelo por PCR:}
 ~\\Para hacer uso de la regresión por componentes principales en nuestro modelo, se comienza con la transformación lineal $Z=XT$ que transforma los regresores estandarizados originales en un conjunto ortogonal de variables (los componentes principales). Los valores propios $\lambda_{j}$ y la matriz T para los 500 datos seleccionados de la base de datos 'cadata' se muestran en la siguiente tabla.La matriz T indica la relación entre Z y los regresores estandarizados. Por ejemplo, la relación entre $Z_{1}$ y los regresores estandarizados es 
 $$z_{1}=-0.0785x_{1}-0.1609x_{2}+0.4854x_{3}+0.4987x_{4}+0.4831x_{5}+0.5002x_{6}$$
-
 ~\\\begin{tabular}{p{1.8cm}p{1.8cm}p{2cm}p{1.8cm}p{1.8cm}p{1.8cm}|p{2.5cm}}
 \hline 
  &  & VECTORES PROPIOS &  &  &  & VALORES PROPIOS $\lambda_{j}$ \\ 
 \hline 
--0.07851439 & 0.88436486 & -0.399610859 & 0.03866445 & 0.2232029 & -0.02703696 & 3.72181333 \\ 
-\hline 
--0.16091266 & -0.38609154 & -0.891249689 & -0.14164674 & -0.1006961 & -0.02260359 & 1.05255886 \\ 
-\hline 
-0.48537035 & 0.22689357 & -0.072328309 & -0.13160716 & -0.8298092 & 0.04242423 & 0.93404888 \\ 
-\hline 
-0.49876670 & -0.09577328 & -0.124700897 & 0.47098126 & 0.1664129 & -0.69064631 & 0.19394997 \\ 
-\hline 
-0.48308811 & -0.02353949 & 0.003937038 & -0.77674426 & 0.3947270 & -0.08315767 & 0.08822446 \\ 
-\hline 
+-0.07851439 & 0.88436486 & -0.399610859 & 0.03866445 & 0.2232029 & -0.02703696 & 3.72181333 \\  
+-0.16091266 & -0.38609154 & -0.891249689 & -0.14164674 & -0.1006961 & -0.02260359 & 1.05255886 \\  
+0.48537035 & 0.22689357 & -0.072328309 & -0.13160716 & -0.8298092 & 0.04242423 & 0.93404888 \\  
+0.49876670 & -0.09577328 & -0.124700897 & 0.47098126 & 0.1664129 & -0.69064631 & 0.19394997 \\  
+0.48308811 & -0.02353949 & 0.003937038 & -0.77674426 & 0.3947270 & -0.08315767 & 0.08822446 \\  
 0.50021584 & -0.08732010 & -0.158707136 & 0.36873545 & 0.2606814 & 0.71627560 & 0.00940450 \\ 
 \hline 
 \end{tabular} 
@@ -269,8 +259,31 @@ $$\hat{\beta}_{PC}=T\hat{\alpha}_{PC}=\left[\begin{matrix}
  -0.01947330 \\ 
  0.07412164
  \end{matrix}\right]$$
-
-
+\section{Comparación resultados}
+~\\en la siguiente tabla, se van a ver las comparaciones en las estimaciones de los coeficientes de regresión por el método de PCR y por MCO, se debe tener en cuenta que las estimaciones estandarizadas se hicieron paso a paso y las estimaciones originales se hicieron con las funciones de R.
+\begin{tabular}{|p{1.8cm}|p{2.5cm}p{2.5cm}|p{3cm}p{2.5cm}|}
+\hline 
+  &3 Componentes&principales&Minimos cuadrados&Ordinarios \\ 
+\hline 
+Parámetro & Estimador Est. & Estimador Ori. & Estimador Est. & Estimador Ori. \\ 
+ 
+$\beta_{0}$ & 0 &  & 0 & 57720.52 \\ 
+ 
+$\beta_{1}$ & 0.4060 & -0.4056 & 0.3493 & 24261.20 \\ 
+ 
+$\beta_{2}$ & 0.5136 & 3.0349 & 0.4171 & 3443.94 \\ 
+ 
+$\beta_{3}$ & 0.0711 & -24.1290 & 0.2438 & 19.09 \\ 
+ 
+$\beta_{4}$ & 0.0508 & 130.9351 & -0.2023 & -67.72 \\ 
+ 
+$\beta_{5}$ & -0.0195 & -53.6609 & -0.7870 & -121.66 \\ 
+ 
+$\beta_{6}$ & 0.0741 & 111.6005 & 0.8603 & 315.92 \\ 
+\hline 
+\end{tabular} 
+\section{Implementación en R}
+~\\Para llevar a cabo todo el análisis estadístico se utilizó el software \citeasnoun{R}.Para leer y cargar la base de datos 'cadata' se utilizó el paquete \citeasnoun{read},para todo lo relacionado con el álgebra matricial implícito (valores y vectores propios, multiplicación y manejo de vectores) se realizó con las operaciones base que trae R, para las estimaciones de los coeficientes o de los $\beta's$ por MCO se utilizó la función \citeasnoun{Lm} y para la estimación de los coeficientes por componentes principales se usó el paquete \citeasnoun{pls}, más específicamente la función pcr, que nos arroja los componentes principales y los coeficientes estimados por el número de componentes que se desee. Se utilizó un paquete adicional para calcular los VIF, cabe decir que también se hicieron a mano con la formula dada, y los resultados fueron idénticos, ese paquete fue \citeasnoun{vif}.
 
 \section{Conclusiones}
 
@@ -279,9 +292,7 @@ $$\hat{\beta}_{PC}=T\hat{\alpha}_{PC}=\left[\begin{matrix}
 
 
 
-
-\nocite{Behar}
-\nocite{supuestos}
+\nocite{apl}
 \nocite{Reg}
 \nocite{F}
 % //// --------------------------------------------------------------------------------

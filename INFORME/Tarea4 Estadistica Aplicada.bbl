@@ -10,12 +10,41 @@ Faraway, J.~J.  \harvardyearleft 2005\harvardyearright , {\em Extending the
   Linear Model with R: Generalized Linear, Mixed Effects and Nonparametric
   Regression Models}, Vol. 1 edn., Chapman y Hall / CRC.
 
-\harvarditem{Gómez}{2006}{supuestos}
-Gómez, N.~G.  \harvardyearleft 2006\harvardyearright , {\em Notas de clase:
-  Series de tiempo con R}, Universidad Nacional de Colombia.
+\harvarditem[Mevik et~al.]{Mevik, Wehrens \harvardand\ Liland}{2016}{pls}
+Mevik, B.-H., Wehrens, R. \harvardand\ Liland, K.~H.  \harvardyearleft
+  2016\harvardyearright , {\em pls: Partial Least Squares and Principal
+  Component Regression}.
+\newblock R package version 2.6-0.
+\newline\harvardurl{https://CRAN.R-project.org/package=pls}
 
-\harvarditem{Gutiérrez}{2003}{Behar}
-Gutiérrez, R.~B.  \harvardyearleft 2003\harvardyearright , `Validación de
-  supuestos en el modelo de regresión', {\em Serie Monografías} {\bf 1 edn.}
+\harvarditem{Nakazawa}{2018}{vif}
+Nakazawa, M.  \harvardyearleft 2018\harvardyearright , {\em fmsb: Functions for
+  Medical Statistics Book with some Demographic Data}.
+\newblock R package version 0.6.3.
+\newline\harvardurl{https://CRAN.R-project.org/package=fmsb}
+
+\harvarditem{Norman R.~Draper}{1998}{apl}
+Norman R.~Draper, H.~S.  \harvardyearleft 1998\harvardyearright , {\em Applied
+  Regression Analysis, Third Edition (Wiley Series in Probability and
+  Statistics)}, third edn.
+\newline\harvardurl{http://gen.lib.rus.ec/book/index.php?md5=903983CE6C8FBCBB1F81265002FE576B}
+
+\harvarditem{{R Core Team}}{2017}{R}
+{R Core Team}  \harvardyearleft 2017\harvardyearright , {\em R: A Language and
+  Environment for Statistical Computing}, R Foundation for Statistical
+  Computing, Vienna, Austria.
+\newline\harvardurl{https://www.R-project.org/}
+
+\harvarditem[Wickham et~al.]{Wickham, Hester \harvardand\ Francois}{2017}{read}
+Wickham, H., Hester, J. \harvardand\ Francois, R.  \harvardyearleft
+  2017\harvardyearright , {\em readr: Read Rectangular Text Data}.
+\newblock R package version 1.1.1.
+\newline\harvardurl{https://CRAN.R-project.org/package=readr}
+
+\harvarditem{Zeileis \harvardand\ Hothorn}{2002}{Lm}
+Zeileis, A. \harvardand\ Hothorn, T.  \harvardyearleft 2002\harvardyearright ,
+  `Diagnostic checking in regression relationships', {\em R News} {\bf
+  2}(3),~7--10.
+\newline\harvardurl{https://CRAN.R-project.org/doc/Rnews/}
 
 \end{thebibliography}
