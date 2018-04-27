@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.9.23)  20 APR 2018 20:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.9.23)  26 APR 2018 21:22
 entering extended mode
 **"./presentacion tarea4.tex"
 ("presentacion tarea4.tex"
@@ -1110,7 +1110,20 @@ Package babel Info: Making . an active character on input line 662.
 Package babel Info: Making < an active character on input line 707.
 Package babel Info: Making > an active character on input line 707.
 ))
-No file "presentacion tarea4".aux.
+("presentacion tarea4.aux"
+LaTeX Info: Redefining \. on input line 25.
+LaTeX Info: Redefining \% on input line 25.
+
+
+LaTeX Warning: Label `fig:Densidad' multiply defined.
+
+
+LaTeX Warning: Label `fig:Densidad' multiply defined.
+
+
+LaTeX Warning: Label `fig:Densidad' multiply defined.
+
+)
 \openout1 = `"presentacion tarea4.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
@@ -1127,6 +1140,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1203,6 +1217,8 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 17.
 LaTeX Info: Redefining \pageref on input line 17.
 LaTeX Info: Redefining \nameref on input line 17.
+
+("presentacion tarea4.out") ("presentacion tarea4.out")
 \@outlinefile=\write5
 \openout5 = `"presentacion tarea4.out"'.
 
@@ -1290,8 +1306,7 @@ Dictionary: translator-theorem-dictionary, Language: English
 LaTeX Info: Redefining \includegraphics on input line 17.
 LaTeX Info: Redefining \. on input line 17.
 LaTeX Info: Redefining \% on input line 17.
-
-No file "presentacion tarea4".nav.
+ ("presentacion tarea4.nav")
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 21.
@@ -1302,36 +1317,40 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 [2
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 37.
+LaTeX Font Info:    Try loading font information for U+msa on input line 36.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 37.
+LaTeX Font Info:    Try loading font information for U+msb on input line 36.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 37.
+line 36.
 
 (C:\Users\KEVINSTEVEN\AppData\Roaming\MiKTeX\2.9\tex\latex\sansmathaccent\ot1ma
 thkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
-Overfull \hbox (7.04706pt too wide) detected at line 37
-\OT1/mathkerncmss/m/sl/12 Y \OT1/cmss/m/n/12 = 57720[]52 + 24261[]20\OT1/mathke
-rncmss/m/sl/12 X[] \OT1/cmss/m/n/12 + 3443[]94\OT1/mathkerncmss/m/sl/12 X[] \OT
-1/cmss/m/n/12 + 19[]09\OT1/mathkerncmss/m/sl/12 X[] \OMS/cmsy/m/n/12   \OT1/cms
-s/m/n/12 67[]72\OT1/mathkerncmss/m/sl/12 X[] \OMS/cmsy/m/n/12   \OT1/cmss/m/n/1
-2 121[]66\OT1/mathkerncmss/m/sl/12 X[]
+Overfull \hbox (89.20944pt too wide) detected at line 36
+\OT1/mathkerncmss/m/sl/12 ValorMediano \OT1/cmss/m/n/12 = \OML/cmm/m/it/12 [] 
+\OT1/cmss/m/n/12 + \OML/cmm/m/it/12 []\OT1/cmss/m/n/12 (\OT1/mathkerncmss/m/sl
+/12 IngresoMediano\OT1/cmss/m/n/12 ) + \OML/cmm/m/it/12 []\OT1/cmss/m/n/12 (\O
+T1/mathkerncmss/m/sl/12 EdadMediana\OT1/cmss/m/n/12 ) + \OML/cmm/m/it/12 []\OT
+1/cmss/m/n/12 (\OT1/mathkerncmss/m/sl/12 TotalDeHabitaciones\OT1/cmss/m/n/12 )
  []
 
 [3
 
 ] [4
 
-] [5
+]
+Overfull \vbox (19.65149pt too high) detected at line 50
+ []
+
+[5
 
 ] [6
 
@@ -1339,86 +1358,126 @@ s/m/n/12 67[]72\OT1/mathkerncmss/m/sl/12 X[] \OMS/cmsy/m/n/12   \OT1/cmss/m/n/1
 
 ] [8
 
-] [9
+]
+Overfull \hbox (0.45012pt too wide) detected at line 87
+\OT1/mathkerncmss/m/sl/12 R \OT1/cmss/m/n/12 = []
+ []
 
-] [10
+[9
 
 ]
-<imagenes/correlograma.pdf, id=292, 1027.84pt x 545.03625pt>
-File: imagenes/correlograma.pdf Graphic file (type pdf)
+Overfull \vbox (1.50703pt too high) detected at line 97
+ []
 
-<use imagenes/correlograma.pdf>
-Package pdftex.def Info: imagenes/correlograma.pdf used on input line 115.
-(pdftex.def)             Requested size: 335.7426pt x 178.03287pt.
+[10
 
-Overfull \vbox (3.98021pt too high) detected at line 115
+]
+Overfull \hbox (173.0786pt too wide) in paragraph at lines 110--110
+[][] 
  []
 
 [11
 
- <./imagenes/correlograma.pdf>] [12
+] [12
 
 ] [13
 
 ]
-<imagenes/rachas.png, id=380, 285.31593pt x 63.23625pt>
+Overfull \vbox (8.29271pt too high) detected at line 137
+ []
+
+[14
+
+] [15
+
+] [16
+
+] [17
+
+] [18
+
+] [19
+
+] [20
+
+] [21
+
+]
+<imagenes/correlograma.pdf, id=583, 1027.84pt x 545.03625pt>
+File: imagenes/correlograma.pdf Graphic file (type pdf)
+
+<use imagenes/correlograma.pdf>
+Package pdftex.def Info: imagenes/correlograma.pdf used on input line 204.
+(pdftex.def)             Requested size: 335.7426pt x 178.03287pt.
+
+Overfull \vbox (3.98021pt too high) detected at line 204
+ []
+
+[22
+
+ <./imagenes/correlograma.pdf>] [23
+
+] [24
+
+]
+<imagenes/rachas.png, id=670, 285.31593pt x 63.23625pt>
 File: imagenes/rachas.png Graphic file (type png)
 
 <use imagenes/rachas.png>
-Package pdftex.def Info: imagenes/rachas.png used on input line 153.
+Package pdftex.def Info: imagenes/rachas.png used on input line 242.
 (pdftex.def)             Requested size: 284.52756pt x 63.06143pt.
 pdfTeX warning (ext4): destination with the same identifier (name{fig:Densidad}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.153 \end{frame}
+l.242 \end{frame}
                  
-Overfull \vbox (5.00877pt too high) detected at line 153
+Overfull \vbox (5.00877pt too high) detected at line 242
  []
 
-[14
+[25
 
  <./imagenes/rachas.png>]
-Overfull \vbox (2.33325pt too high) detected at line 163
+Overfull \vbox (2.33325pt too high) detected at line 252
  []
 
-[15
+[26
 
-] <imagenes/durbin.png, id=438, 322.95656pt x 60.225pt>
+] <imagenes/durbin.png, id=728, 322.95656pt x 60.225pt>
 File: imagenes/durbin.png Graphic file (type png)
 
 <use imagenes/durbin.png>
-Package pdftex.def Info: imagenes/durbin.png used on input line 181.
+Package pdftex.def Info: imagenes/durbin.png used on input line 270.
 (pdftex.def)             Requested size: 284.52756pt x 53.06155pt.
 pdfTeX warning (ext4): destination with the same identifier (name{fig:Densidad}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.181 \end{frame}
+l.270 \end{frame}
                  
-Overfull \vbox (3.0089pt too high) detected at line 181
+Overfull \vbox (3.0089pt too high) detected at line 270
  []
 
-[16
+[27
 
- <./imagenes/durbin.png>] [17
+ <./imagenes/durbin.png>] [28
 
-] [18
+] [29
 
 ]
-<imagenes/box.png, id=518, 286.82156pt x 48.18pt>
+<imagenes/box.png, id=808, 286.82156pt x 48.18pt>
 File: imagenes/box.png Graphic file (type png)
  <use imagenes/box.png>
-Package pdftex.def Info: imagenes/box.png used on input line 210.
+Package pdftex.def Info: imagenes/box.png used on input line 299.
 (pdftex.def)             Requested size: 284.52756pt x 47.79535pt.
 pdfTeX warning (ext4): destination with the same identifier (name{fig:Densidad}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.210 \end{frame}
-                  [19
+l.299 \end{frame}
+                  [30
 
- <./imagenes/box.png>] [20
+ <./imagenes/box.png>] [31
 
 ]
 \tf@nav=\write6
@@ -1430,37 +1489,31 @@ l.210 \end{frame}
 \tf@snm=\write8
 \openout8 = `"presentacion tarea4.snm"'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 218.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 218.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 307.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 307.
  ("presentacion tarea4.aux"
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 218.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 218.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 307.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 307.
+Package rerunfilecheck Info: File `"presentacion tarea4".out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
-
-Package rerunfilecheck Warning: File `"presentacion tarea4".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"presentacion tarea4".out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 218.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 307.
  ) 
 Here is how much of TeX's memory you used:
- 17848 strings out of 493334
- 340205 string characters out of 3139234
- 420193 words of memory out of 3000000
- 20913 multiletter control sequences out of 15000+200000
+ 17947 strings out of 493334
+ 341155 string characters out of 3139234
+ 420435 words of memory out of 3000000
+ 20982 multiletter control sequences out of 15000+200000
  10990 words of font info for 40 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,17n,57p,920b,581s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1478,9 +1531,9 @@ pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:
  Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on "presentacion tarea4.pdf" (20 pages, 294781 bytes).
+Output written on "presentacion tarea4.pdf" (31 pages, 363658 bytes).
 PDF statistics:
- 631 PDF objects out of 1000 (max. 8388607)
- 42 named destinations out of 1000 (max. 500000)
+ 923 PDF objects out of 1000 (max. 8388607)
+ 64 named destinations out of 1000 (max. 500000)
  87 words of extra memory for PDF output out of 10000 (max. 10000000)
 

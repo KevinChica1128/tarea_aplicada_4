@@ -7,7 +7,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \author{Kevin García - Alejandro Vargas}
-\title{Supuestos en el modelo de regresión}
+\title{Multicolinealidad}
 %\setbeamercovered{transparent} 
 %\setbeamertemplate{navigation symbols}{} 
 %\logo{} 
@@ -25,56 +25,145 @@
 %\end{frame}
 \begin{frame}
 \frametitle{Introducción}
-~\\En esta presentación evaluaremos el supuesto de independencia en los errores del modelo lineal ajustado para
-los 500 datos seleccionados de la base de datos 'cadata'. Se dará una presentación formal del supuesto y se mostrará la consecuencia que tiene el incumplimiento de este, además, se aplicaran pruebas tanto gráficas como estadísticas para verificar el incumplimiento o cumplimiento de este supuesto en nuestro modelo lineal ajustado y finalmente, se concluirá acerca del modelo teniendo en cuenta los resultados de las pruebas aplicadas.
+~\\ En esta presentación evaluaremos la presencia de multicolinealidad en el modelo lineal ajustado para los 500 datos seleccionados de la base de datos 'cadata'. Se dará una presentación formal de la multicolinealidad y se mostraran algunas consecuencias que tiene la presencia de este, además, se describirán y se aplicarán distintos métodos para verificar la presencia o ausencia de esta en nuestro modelo lineal ajustado, posteriormente se tratara de solucionar esto, llevando a cabo estimación por PCR(regresión por componentes principales) y finalmente, se concluirá acerca del modelo teniendo en cuenta los resultados de los métodos aplicados y de la estimación por PCR comparada con los estimadores por MCO(mínimos cuadrados ordinarios) .
 \end{frame}
 
 \begin{frame}
-\frametitle{Modelo ajustado}
-~\\ El modelo ajustado sobre el cuál se va a validar el supuesto de independencia en los errores, es el modelo que se ajusto en la tarea 1, que pretendía explicar la variable $Y=$'Valor mediano de las viviendas' con las variables explicativas $X_{1}=$'Ingreso mediano',$X_{2}=$'Edad mediana de la vivienda',$X_{3}=$'Total de habitaciones',$X_{4}=$'Total de dormitorios',$X_{5}=$'Población' y $X_{6}=$'Hogares'. El modelo ajustado para estas variables, sin hacer transformación ni selección de estas es:
-$$Y = 57720.52 + 24261.20X_{1} + 3443.94X_{2} + 19.09X_{3} - 67.72X_{4} - 121.66X_{5}$$ 
-$$+315.92X_{6}$$
+\frametitle{Modelo planteado}
+~\\ El modelo sobre el cuál se va a evaluar la presencia de la multicolinealidad, es el modelo que se planteó en la tarea 1, que pretendía explicar la variable 'Valor mediano de las viviendas' con las variables explicativas 'Ingreso mediano','Edad mediana de la vivienda','Total de habitaciones','Total de dormitorios','Población' y 'Hogares'. El modelo planteado para estas variables, sin hacer transformación ni selección de estas es:
+$$ValorMediano =\beta_{0}+\beta_{1}(IngresoMediano)+\beta_{2}(EdadMediana)+\beta_{3}(TotalDeHabitaciones)$$
+$$+\beta_{4}(TotalDeDormitorios)+\beta_{5}(Poblacion)+\beta_{6}(Hogares) $$
 \end{frame}
 
 \begin{frame}
-\frametitle{Supuesto de independencia (no correlación) en los errores}
-~\\ El supuesto de independencia o de no correlación de los errores establece que $COV(\varepsilon_{i},\varepsilon_{j})=0$ $\forall i\neq j$
-~\\ Esto en palabras quiere decir que todos los valores en posiciones diferentes a la diagonal de la matriz de varianzas y covarianzas deben ser igual a cero.
-~\\\[V[E]=
-\left( \begin{array}{cccc}
- \sigma^2 & 0 & \cdots & 0 \\ 
- 0 & \sigma^2 & \cdots & 0 \\
- \vdots & \vdots & \ddots & \vdots \\
- 0 & 0 & \cdots & \sigma^2
+\frametitle{Multicolinealidad}
+~\\La multicolinealidad implica una dependencia casi lineal entre los regresores, los cuales son las columnas de la matriz X, por lo que es claro que una dependencia lineal exacta causaría una matriz $X^{T}X$ singular. La presencia de dependencias casi lineales puede influir en forma dramática sobre la capacidad de estimar coeficientes de regresión afectando la precisión de las estimaciones. Cuando existe multicolinealidad en nuestro modelo, el análisis por mínimos cuadrados puede ser totalmente inadecuado.
+\end{frame}
+
+\begin{frame}
+\frametitle{Posibles causas de la multicolinealidad}
+~\\La multicolinealidad se puede dar por cuatro fuentes principales:
+\begin{itemize}
+\item[1.]]El método de recolección de datos que se empleó:Puede originar problemas de multicolinealidad cuando el analista sólo muestrea un subespacio de la región de los regresores definidos.
+\item[2.]Restricciones en el modelo o en la población:Las restricciones en el modelo o en la población que se muestrea pueden causar multicolinealidad; por ejemplo, supóngase que una empresa eléctrica está investigando el efecto del ingreso familiar $(X_{l})$ y el tamaño de la vivienda $(X_{2})$ sobre el consumo eléctrico residencial.En este ejemplo, una restricción física en la población fue lo que causó este fenómeno: las familias que tienen ingresos mayores en general tienen casas mayores que las familias de menores ingresos, cuando hay restricciones físicas como ésta, habrá multicolinealidad independientemente del método de muestreo que se emplee.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Posibles causas de la multicolinealidad}
+\begin{itemize}
+\item[3.]Especificación del modelo:También se puede inducir la multicolinealidad por la elección del modelo. Por ejemplo,al agregar términos polinomiales a un modelo de regresión se produce un deterioramiento en $X^{T}X$, además, si el rango de X es pequeño, al agregar un término en $X^{2}$ puede producirse una multicolinealidad importante. 
+\item[4.]Un modelo sobredefinido:Cuando se tienen mas variables regresoras que observaciones se puede generar un problema de multicolinealidad.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Consecuencias de la multicolinealidad}
+~\\Una multicolinealidad fuerte entre los regresores del modelo,da como resultado grandes varianzas y covarianzas de los estimadores de coeficientes de regresión por mínimos cuadrados.Esto implica que distintas muestras tomadas con los mismos valores de X podrían ocasionar estimaciones muy diferentes de los parámetros del modelo.
+\end{frame}
+
+\begin{frame}
+\frametitle{Métodos para detectar multicolinealidad}
+~\\Para detectar la multicolinealidad se utilizaran los 4 métodos de diagnostico expuestos en el libro de montgomery, que son los siguientes:
+\begin{itemize}
+\item[1.]Examen de la matriz de correlación:Una medida muy sencilla de la multicolinealidad es la inspección de los elementos $r_{ij}$ no diagonales en la matriz de correlaciones. Si los regresores $x_{i}$ y $x_{j}$ son casi linealmente dependientes $|r_{ij}|$ será próximo a 1. Para nuestros datos, la matriz de correlaciones es la siguiente:
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Métodos para detectar multicolinealidad}
+
+\[R=
+\left( \begin{array}{cccccc}
+ 1 & 0.01725 & 0.07903 & -0.18136 & -0.16257 & -0.16049 \\ 
+   & 1       & -0.31169& -0.17024 & -0.26517 & -0.14456 \\
+   &         & 1       & 0.86207  & 0.85768  & 0.86527 \\
+   &         &         & 1        & 0.83406  & 0.98870 \\
+   &         &         &          & 1        & 0.85391 \\
+   &         &         &          &          & 1
 \end{array} \right) \]
-
+~\\La matriz de correlaciones R, nos muestra perfectamente la alta correlación que existe entre las últimas 4 variables regresoras o explicativas (Total de habitaciones, total de dormitorios, población y hogares) , por lo cuál es casi evidente que una o varías de estas sobran en el modelo y pueden ocasionar multicolinealidad.
 \end{frame}
 
 \begin{frame}
-\frametitle{Posibles causas de autocorrelación en los errores}
+\frametitle{Métodos para detectar multicolinealidad}
 \begin{itemize}
-\item[1.]Autocorrelación natural por el modelo y las variables.
-\item[2.]Omisión de variables relevantes en el modelo especificado.
-\item[3.]Mala especificación del modelo. 
-\item[4.]Transformaciones incorrectas de los datos.
+\item[2.]Factores de inflación de varianza:Como la varianza de los j-ésimos coeficientes de regresión es $C_{jj}\sigma^2$ se puede considerar que $C_{jj}$ es el factor en el que aumenta la varianza de $\hat{\beta_{j}}$ debido a dependencias casi lineales entre los regresores.
+~\\Entonces se define el factor de inflación de varianza como: 
+$$VIF_{j}=C_{jj}=(1-R^2_{j})^{-1}$$
+~\\El factor VIF (de variance inflation factor) para cada término del modelo mide el efecto combinado que tienen las dependencias entre los regresores sobre la varianza de ese término. Si hay uno o más VIF grandes, hay multicolinealidad. El criterio dice que si cualquiera de los VIF es mayor que 5 o 10, es indicio de que los coeficientes asociados de regresión están mal estimados debido a la multicolinealidad.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Consecuencias de autocorrelación en los errores}
-~\\La presencia de autocorrelación en los errores tiene diversos efectos sobre el procedimiento ordinario de regresión por mínimos cuadrados. Estos efectos se resumen a continuación:
+\frametitle{Métodos para detectar multicolinealidad}
+~\\Los $VIF_{i}$ para este modelo son:
+~\\\begin{tabular}{llllllll}
+\hline 
+VARIABLE & Ing.Mediano & Edad Mediana & T.Habitaciones & T.Dormitorios & Población & Hogares \\ 
+\hline 
+VIF & 1.565795 & 1.271698 & 8.203393 & 52.2694 & 5.675371 & 56.12648 & \\ 
+\hline 
+\end{tabular} 
+~\\Podemos ver que hay 2 VIF mayores que 5 y 2 VIF mayores que 10, entonces podemos afirmar que los coeficientes de regresión asociados a estas variables están mal estimados debido a la multicolinealidad.
+\end{frame}
+
+\begin{frame}
+\frametitle{Métodos para detectar multicolinealidad}
 \begin{itemize}
-\item[1.]Tiende a cambiar la matriz de varianzas y covarianzas $\sigma^2 I$ por $\sigma^2 V$, y esto tiene como consecuencia la perdida de la optimalidad del estimador de mínimos cuadrados ordinarios (MCO), es decir, los estimadores obtenidos por este método de estimación ya no son estimadores óptimos.
-\item[2.]Los coeficientes de regresión ordinaria por mínimos cuadrados siguen siendo insesgados, pero ya no son estimados con varianza mínima. Se dice entonces que esos estimados son ineficientes.
+\item[3.]Análisis del eigensistema de $X^{T}X$:Los valores propios de $X^{T}X$, por ejemplo $\lambda_{1},\lambda_{2},...,\lambda_{p}$ se pueden usar para medir el grado de multicolinealidad en los datos. Si hay una o más dependencias casi lineales en los datos, una o más de las raíces características será pequeña. Uno o más eigenvalores pequeños implican que hay dependencias casi lineales entre las columnas de X. Algunos analistas prefieren examinar el número de condición de $X^{T}X$, que se define como $k=\frac{\lambda_{max}}{\lambda_{min}}$
+~\\En general, si el número de condición es menor que 100, no hay problema grave de multicolinealidad. Los números de condición de 100 a 1 000 implican multicolinealidad de moderada a fuerte, y si k es mayor que 1 000, es indicio de una fuerte multicolinealidad.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Consecuencias de autocorrelación en los errores}
+\frametitle{Métodos para detectar multicolinealidad}
+~\\Los indices de condición de la matriz $X^{T}X$ son
+~\\$$k_{j}=\frac{\lambda_{max}}{\lambda_{j}} ; j=1,2,...,p$$
+~\\La cantidad de indices de condición que son grandes (digamos, $\geq 1000$) es una medida útil de la cantidad de dependencias casi lineales en $X^{T}X$.
+~\\Los valores propios para la matriz $X^{T}X=R$ (en forma de correlación) correspondiente a nuestros datos son:
+~\\$\lambda_{1}=3.72181333,\lambda_{2}=1.05255886,\lambda_{3}=0.93404888,\lambda_{4}=0.19394997,\lambda_{5}=0.08822446,\lambda_{6}=0.00940450$
+\end{frame}
+
+\begin{frame}
+\frametitle{Métodos para detectar multicolinealidad}
+~\\De aquí, tenemos que $\lambda_{max}=3.72181333$ y $\lambda_{min}=0.00940450$, por lo tanto el número de condición es:
+$$k=\frac{\lambda_{max}}{\lambda_{min}}=\frac{3.72181333}{0.00940450}=395.7481344$$
+~\\El cuál es demasiado grande, lo que nos indica una multicolinealidad fuerte en nuestro modelo con todas las variables.
+~\\Y los indices de condición son:
+~\\$$k_{1}=\frac{3.72181333}{3.72181333}=1,k_{2}=\frac{3.72181333}{1.05255886}=3.5359669$$
+~\\$$k_{3}=\frac{3.72181333}{0.93404888}=3.9846023$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Métodos para detectar multicolinealidad}
+~\\$$k_{4}=\frac{3.72181333}{0.19394997}=19.189553,k_{5}=\frac{3.72181333}{0.08822446}=42.18573092$$
+~\\$$k_{6}=\frac{3.72181333}{0.00940450}=395.7481344$$
+~\\Podemos ver que 1 indice de condición es mayor que 100, lo que nos dice que al menos hay 1 dependencias fuerte casi lineales en los datos de nuestro modelo (columnas de $X^{T}X$).
+\end{frame}
+
+\begin{frame}
+\frametitle{Métodos para detectar multicolinealidad}
 \begin{itemize}
-\item[3.]Cuando los errores están autocorrelacionados positivamente, el cuadrado medio de los residuales, $MS_{Res}$ puede subestimar mucho a $\sigma^2$, en consecuencia, los errores estándar de los coeficientes de regresión pueden ser muy pequeños. Así, los intervalos de confianza son más cortos de lo que deberían ser, y las pruebas de hipótesis acerca de los coeficientes individuales de regresión pueden indicar que uno o más de los regresores contribuyen en forma significativa al modelo, cuando en realidad no contribuyen. 
-\item[4.]Los intervalos de confianza y las pruebas de hipótesis basados en las distribuciones T y F ya no son adecuados.
+\item[4.]Determinante de $X^{T}X$ en forma de correlación: Se puede usar el determinante de $X^{T}X$ como índice de colinealidad; ya que la matriz $X^{T}X$ está en forma de correlación, el intervalo de posibles valores del determinante es $0\leq |X^{T}X| \leq 1$. Si $|X^{T}X| = 1$, los regresores son ortogonales, mientras que si $|X^{T}X|=0$, hay una dependencia lineal exacta entre ellos. El grado de multicolinealidad se agrava a medida que $|X^{T}X|$ tiende a cero. Si bien esta medida de multicolinealidad es fácil de aplicar, no proporciona información alguna sobre el origen de la multicolinealidad.
+~\\Para nuestro caso el determinante de la matriz de correlaciones $X^{T}X$ es:$|X^{T}X|=|R|=0.0005888233$
+~\\Por lo cual podemos afirmar que hay una multicolinealidad grave en nuestro modelo.
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Métodos para detectar multicolinealidad}
+~\\$$k_{4}=\frac{3.72181333}{0.19394997}=19.189553,k_{5}=\frac{3.72181333}{0.08822446}=42.18573092$$
+~\\$$k_{6}=\frac{3.72181333}{0.00940450}=395.7481344$$
+~\\Podemos ver que 1 indice de condición es mayor que 100, lo que nos dice que al menos hay 1 dependencias fuerte casi lineales en los datos de nuestro modelo (columnas de $X^{T}X$).
+\end{frame}
+
+\begin{frame}
+\frametitle{Métodos para detectar multicolinealidad}
+~\\$$k_{4}=\frac{3.72181333}{0.19394997}=19.189553,k_{5}=\frac{3.72181333}{0.08822446}=42.18573092$$
+~\\$$k_{6}=\frac{3.72181333}{0.00940450}=395.7481344$$
+~\\Podemos ver que 1 indice de condición es mayor que 100, lo que nos dice que al menos hay 1 dependencias fuerte casi lineales en los datos de nuestro modelo (columnas de $X^{T}X$).
 \end{frame}
 
 \begin{frame}
