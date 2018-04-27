@@ -126,3 +126,12 @@ Z1<-X%*%T1
 A1<-t(Z1)%*%Z1
 alfae1<-solve(A1)%*%t(Z1)%*%y
 Betaest1<-T1%*%alfae1
+
+#varianza
+X_1col=cbind(1,X)
+var_lm1=(1/(500-6))*((t(y)%*%y)-(t(Regresion$coefficients)%*%t(X_1col)%*%y))
+var_beta=(T%*%solve(A)%*%t(T))*var_lm1 
+anova(Regresion)
+
+
+
