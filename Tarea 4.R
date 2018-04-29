@@ -76,7 +76,7 @@ regresion_pcr=pcr(formula=cadata$Valor_mediano_de_la_casa ~ cadata$Ingreso_media
 summary(regresion_pcr)
 fitted(regresion_pcr, comps = 1:4)
 resid(regresion_pcr, comps = 1:4)
-coef(regresion_pcr, comps = 1:6)
+coef(regresion_pcr, comps = 3)
 
 ## Eigenvalues can be extracted
 eigenvals(regresion_pcr)
@@ -127,11 +127,13 @@ A1<-t(Z1)%*%Z1
 alfae1<-solve(A1)%*%t(Z1)%*%y
 Betaest1<-T1%*%alfae1
 
-#varianza
+#varianza MCO
 X_1col=cbind(1,X)
-var_lm1=(1/(500-6))*((t(y)%*%y)-(t(Regresion$coefficients)%*%t(X_1col)%*%y))
-var_beta=(T%*%solve(A)%*%t(T))*var_lm1 
-anova(Regresion)
+var_lm1=(1/(500-7))*((t(y)%*%y)-(t(Regresion$coefficients)%*%t(X_1col)%*%y))
+summary(Regresion)$sigma^2
+Vbetalm=solve(t(X_1col)%*%X_1col)*6724487923
 
+#varianza PCR con tres componentes:
+var_pcr=(1/(500-7))*((t(y)%*%y)-(t(c(coef(regresion_pcr, comps = 3)))%*%t(X)%*%y))
 
-
+t(c(coef(regresion_pcr, comps = 3)))
