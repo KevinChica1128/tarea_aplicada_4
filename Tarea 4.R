@@ -76,7 +76,7 @@ regresion_pcr=pcr(formula=cadata$Valor_mediano_de_la_casa ~ cadata$Ingreso_media
 summary(regresion_pcr)
 fitted(regresion_pcr, comps = 1:4)
 resid(regresion_pcr, comps = 1:4)
-coef(regresion_pcr, comps = 3)
+coef(regresion_pcr, comps = 1:6)
 
 ## Eigenvalues can be extracted
 eigenvals(regresion_pcr)
@@ -117,8 +117,8 @@ Z<-Xr%*%T
 A<-t(Z)%*%Z
 alfae<-solve(A)%*%t(Z)%*%Y
 alfaec<-c(1,1,1,0,0,0)*alfae
-Betaest<-T%*%alfaec
-
+Betaest<-T%*%alfae
+mean(Y)
 
 Rr1<-t(X)%*%X
 T1<-eigen(Rr1)$vectors
@@ -127,13 +127,25 @@ A1<-t(Z1)%*%Z1
 alfae1<-solve(A1)%*%t(Z1)%*%y
 Betaest1<-T1%*%alfae1
 
-#varianza MCO
+#varianza MCO (datos normales):
 X_1col=cbind(1,X)
 var_lm1=(1/(500-7))*((t(y)%*%y)-(t(Regresion$coefficients)%*%t(X_1col)%*%y))
 summary(Regresion)$sigma^2
 Vbetalm=solve(t(X_1col)%*%X_1col)*6724487923
 
-#varianza PCR con tres componentes:
+#varianza PCR con tres componentes (datos normales):
 var_pcr=(1/(500-7))*((t(y)%*%y)-(t(c(coef(regresion_pcr, comps = 3)))%*%t(X)%*%y))
-
+VbetaPCR=(T%*%solve(A)%*%t(T))*114199000000
 t(c(coef(regresion_pcr, comps = 3)))
+
+#varianza MCO (datos estandarizados):
+X_1cole=cbind(1,Xr)
+var_lm1e=(1/(500-7))*((t(Y)%*%Y)-(t(modeloreescalado$coefficients)%*%t(X_1cole)%*%Y))
+summary(modeloreescalado)$sigma^2
+Vbetalme=solve(t(X_1cole)%*%X_1cole)*0.0009279279
+
+#Varianza PCR con tres componentes (datos estandarizados):
+var_pcre=(1/(500-7))*((t(Y)%*%Y)-((t(Betaestint))%*%t(X_1cole)%*%Y))
+VbetaPCRe=(T%*%solve(A)%*%t(T))*0.0009279279
+Betaestint<-c(0,Betaest)
+

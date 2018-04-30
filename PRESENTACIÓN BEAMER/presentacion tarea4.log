@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.9.23)  26 APR 2018 21:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.9.23)  29 APR 2018 21:58
 entering extended mode
 **"./presentacion tarea4.tex"
 ("presentacion tarea4.tex"
@@ -1113,16 +1113,6 @@ Package babel Info: Making > an active character on input line 707.
 ("presentacion tarea4.aux"
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
-
-
-LaTeX Warning: Label `fig:Densidad' multiply defined.
-
-
-LaTeX Warning: Label `fig:Densidad' multiply defined.
-
-
-LaTeX Warning: Label `fig:Densidad' multiply defined.
-
 )
 \openout1 = `"presentacion tarea4.aux"'.
 
@@ -1392,92 +1382,302 @@ Overfull \vbox (8.29271pt too high) detected at line 137
 
 ] [16
 
-] [17
+]
+Overfull \vbox (3.15149pt too high) detected at line 162
+ []
+
+[17
 
 ] [18
 
-] [19
+]
+Overfull \vbox (59.42824pt too high) detected at line 185
+ []
+
+[19
 
 ] [20
 
-] [21
-
 ]
-<imagenes/correlograma.pdf, id=583, 1027.84pt x 545.03625pt>
-File: imagenes/correlograma.pdf Graphic file (type pdf)
-
-<use imagenes/correlograma.pdf>
-Package pdftex.def Info: imagenes/correlograma.pdf used on input line 204.
-(pdftex.def)             Requested size: 335.7426pt x 178.03287pt.
-
-Overfull \vbox (3.98021pt too high) detected at line 204
+Overfull \hbox (3.1354pt too wide) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 VECTORES
  []
 
-[22
 
- <./imagenes/correlograma.pdf>] [23
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 VALORES
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.07851439| 
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 0.88436486| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (5.10774pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.399610859| 
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 0.03866445| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.02703696| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.16091266| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.38609154| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (5.10774pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.891249689| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.14164674| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.02260359| 
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 0.48537035| 
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 0.22689357| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (5.10774pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.072328309| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.13160716| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 0.04242423| 
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 0.49876670| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.09577328| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (5.10774pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.124700897| 
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 0.47098126| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.69064631| 
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 0.48308811| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.02353949| 
+ []
+
+
+Overfull \hbox (5.10774pt too wide) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 0.003937038| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.77674426| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.08315767| 
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 0.50021584| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.08732010| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 -
+ []
+
+
+Overfull \hbox (5.10774pt too wide) in paragraph at lines 207--207
+\OT1/cmss/m/n/12 0.158707136| 
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 0.36873545| 
+ []
+
+
+Overfull \hbox (4.92326pt too wide) in paragraph at lines 207--207
+[]\OT1/cmss/m/n/12 0.71627560| 
+ []
+
+
+Overfull \hbox (127.41699pt too wide) in paragraph at lines 207--207
+[][]  
+ []
+
+
+Overfull \vbox (4.01805pt too high) detected at line 207
+ []
+
+[21
+
+] [22
+
+] [23
 
 ] [24
 
-]
-<imagenes/rachas.png, id=670, 285.31593pt x 63.23625pt>
-File: imagenes/rachas.png Graphic file (type png)
+] [25
 
-<use imagenes/rachas.png>
-Package pdftex.def Info: imagenes/rachas.png used on input line 242.
-(pdftex.def)             Requested size: 284.52756pt x 63.06143pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:Densidad}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.242 \end{frame}
-                 
-Overfull \vbox (5.00877pt too high) detected at line 242
- []
-
-[25
-
- <./imagenes/rachas.png>]
-Overfull \vbox (2.33325pt too high) detected at line 252
- []
-
-[26
-
-] <imagenes/durbin.png, id=728, 322.95656pt x 60.225pt>
-File: imagenes/durbin.png Graphic file (type png)
-
-<use imagenes/durbin.png>
-Package pdftex.def Info: imagenes/durbin.png used on input line 270.
-(pdftex.def)             Requested size: 284.52756pt x 53.06155pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:Densidad}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.270 \end{frame}
-                 
-Overfull \vbox (3.0089pt too high) detected at line 270
- []
-
-[27
-
- <./imagenes/durbin.png>] [28
-
-] [29
-
-]
-<imagenes/box.png, id=808, 286.82156pt x 48.18pt>
-File: imagenes/box.png Graphic file (type png)
- <use imagenes/box.png>
-Package pdftex.def Info: imagenes/box.png used on input line 299.
-(pdftex.def)             Requested size: 284.52756pt x 47.79535pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:Densidad}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.299 \end{frame}
-                  [30
-
- <./imagenes/box.png>] [31
+] [26
 
 ]
 \tf@nav=\write6
@@ -1489,14 +1689,14 @@ l.299 \end{frame}
 \tf@snm=\write8
 \openout8 = `"presentacion tarea4.snm"'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 307.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 307.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 259.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 259.
  ("presentacion tarea4.aux"
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 307.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 307.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 259.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 259.
 Package rerunfilecheck Info: File `"presentacion tarea4".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1504,36 +1704,28 @@ Package rerunfilecheck Info: File `"presentacion tarea4".out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 307.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 259.
  ) 
 Here is how much of TeX's memory you used:
- 17947 strings out of 493334
- 341155 string characters out of 3139234
- 420435 words of memory out of 3000000
- 20982 multiletter control sequences out of 15000+200000
- 10990 words of font info for 40 fonts, out of 3000000 for 9000
+ 17875 strings out of 493334
+ 339863 string characters out of 3139234
+ 424372 words of memory out of 3000000
+ 20928 multiletter control sequences out of 15000+200000
+ 10391 words of font info for 38 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,17n,57p,920b,581s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,17n,55p,790b,581s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmss17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on "presentacion tarea4.pdf" (31 pages, 363658 bytes).
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmss17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmssi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmssi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
+y10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on "presentacion tarea4.pdf" (26 pages, 266184 bytes).
 PDF statistics:
- 923 PDF objects out of 1000 (max. 8388607)
- 64 named destinations out of 1000 (max. 500000)
- 87 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 755 PDF objects out of 1000 (max. 8388607)
+ 53 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

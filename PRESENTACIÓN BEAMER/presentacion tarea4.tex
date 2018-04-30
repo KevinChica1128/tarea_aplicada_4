@@ -140,7 +140,7 @@ $$k=\frac{\lambda_{max}}{\lambda_{min}}=\frac{3.72181333}{0.00940450}=395.748134
 \frametitle{Métodos para detectar multicolinealidad}
 ~\\$$k_{4}=\frac{3.72181333}{0.19394997}=19.189553,k_{5}=\frac{3.72181333}{0.08822446}=42.18573092$$
 ~\\$$k_{6}=\frac{3.72181333}{0.00940450}=395.7481344$$
-~\\Podemos ver que 1 indice de condición es mayor que 100, lo que nos dice que al menos hay 1 dependencias fuerte casi lineales en los datos de nuestro modelo (columnas de $X^{T}X$).
+~\\Podemos ver que un indice de condición es mayor que 100, lo que nos dice que al menos hay una dependencias fuerte casi lineales en los datos de nuestro modelo (columnas de $X^{T}X$).
 \end{frame}
 
 \begin{frame}
@@ -153,154 +153,106 @@ $$k=\frac{\lambda_{max}}{\lambda_{min}}=\frac{3.72181333}{0.00940450}=395.748134
 \end{frame}
 
 \begin{frame}
-\frametitle{Métodos para detectar multicolinealidad}
-~\\$$k_{4}=\frac{3.72181333}{0.19394997}=19.189553,k_{5}=\frac{3.72181333}{0.08822446}=42.18573092$$
-~\\$$k_{6}=\frac{3.72181333}{0.00940450}=395.7481344$$
-~\\Podemos ver que 1 indice de condición es mayor que 100, lo que nos dice que al menos hay 1 dependencias fuerte casi lineales en los datos de nuestro modelo (columnas de $X^{T}X$).
+\frametitle{Regresión por componentes principales (PCR)}
+~\\Los coeficientes de regresión se pueden obtener por un procedimiento denominado regresión por componentes principales. Sea la forma canónica del modelo:
+$$y=Z\alpha+\epsilon$$
+~\\Donde $Z=XT$, $\alpha=T'\beta$,  $T'X'XT=Z'Z=A$ 
+~\\Y $A=diag(\lambda_{1},\lambda_{2},...,\lambda_{p})$ es una matriz diagonal de tamapo p x p de los valores propios de $X'X$ y T es una matriz ortogonal cuyas columnas son los vectores propios asociados a los valores propios $\lambda_{1},\lambda_{2},...,\lambda_{p}$. Las columnas de Z, definen un nuevo conjunto de regresores ortogonales, como:
+$$Z=[Z_{1},Z_{2},...,Z_{p}]$$ Se llaman componentes principales
 \end{frame}
 
 \begin{frame}
-\frametitle{Métodos para detectar multicolinealidad}
-~\\$$k_{4}=\frac{3.72181333}{0.19394997}=19.189553,k_{5}=\frac{3.72181333}{0.08822446}=42.18573092$$
-~\\$$k_{6}=\frac{3.72181333}{0.00940450}=395.7481344$$
-~\\Podemos ver que 1 indice de condición es mayor que 100, lo que nos dice que al menos hay 1 dependencias fuerte casi lineales en los datos de nuestro modelo (columnas de $X^{T}X$).
+\frametitle{Regresión por componentes principales (PCR)}
+~\\Entonces, el estimador de $\hat{\alpha}$ por minimos cuadrados es
+$$\hat{\alpha}=(Z'Z)^{-1}Z'y= A^{-1}Z'y$$
+~\\Y la matriz de covarianzas de $\hat{\alpha}$ es 
+$$Var(\hat{\alpha})=\sigma^2 (Z'Z)^{-1}=\sigma^2 A^{-1}$$
+~\\El método de regresión por componentes principales combate a la multicolinealidad,
+al usar en el modelo menos componentes que el conjunto completo de componentes principales. Para obtener el estimador de componentes principales, se supone que los regresores están ordenados por valores propios decrecientes, $\lambda_{1}\geq\lambda_{2}\geq...\geq\lambda_{p}>0$.
 \end{frame}
 
 \begin{frame}
-\frametitle{Posibles soluciones}
-\begin{itemize}
-\item[1.]El efecto de la dependencia puede ser un un problema muy grave y difícil de corregir, por ello es importante prevenirlo cuando los datos se están recopilando. El método más eficaz para prevenir la dependencia es realizar un procedimiento apropiado de aleatorización.
-\item[2.]Si se logra estimar la matriz V, se puede trabajar con los mínimos cuadrados generalizados, cabe decir que el proceso de estimación de dicha matriz es bastante complejo.
-\end{itemize}
+\frametitle{Regresión por componentes principales (PCR)}
+~\\Supóngase que los últimos s eigenvalores de éstos son aproximadamente iguales a cero. En la regresión por componentes principales, se eliminan los componentes principales que correspondan a eigenvalores cercanos a cero, y se aplican los mínimos cuadrados a los componentes restantes.
+Esto es,
+$$\hat{\alpha_{PC}}=B\hat{\alpha}$$
+~\\donde $b_{1}=b_{2}=...=b_{p-s}=1$, y $b_{p-s+1}=b_{p-s+2}=...=b_{p}=0$.Así, el estimador de componentes principales es
+$$\hat{\alpha_{PC}}=\left[\begin{matrix}
+\hat{\alpha_{1}} & \hat{\alpha_{2}} & \cdots & \hat{\alpha_{p-s}} & | & 0 & 0 & \cdots & 0
+\end{matrix}\right]$$ 
+~\\ o, en términos de los regresores normalizados,
+$$\hat{\beta}_{PC}=T\hat{\alpha}_{PC}=\sum\limits_{j=1}^{p-1}\lambda_{j}^{-1}t'_{j}X'yt_{j}$$
 \end{frame}
 
 \begin{frame}
-\frametitle{Pruebas para evaluar la independencia en los errores}
-~\\ Las pruebas que aplicamos para evaluar este supuesto fueron las 4 siguientes:
-\begin{itemize}
-\item Prueba gráfica (correlograma)
-\item Prueba de Rachas
-\item Prueba de Durbin-Watson
-\item Prueba de Ljung-Box
-\end{itemize}
+\frametitle{Regresión por componentes principales (PCR)}
+~\\Para hacer uso de la regresión por componentes principales en nuestro modelo, se comienza con la transformación lineal $Z=XT$ que transforma los regresores estandarizados originales en un conjunto ortogonal de variables (los componentes principales). Los valores propios $\lambda_{j}$ y la matriz T para los 500 datos seleccionados de la base de datos 'cadata' se muestran en la siguiente tabla.La matriz T indica la relación entre Z y los regresores estandarizados. Por ejemplo, la relación entre $Z_{1}$ y los regresores estandarizados es 
+$$z_{1}=-0.0785x_{1}-0.1609x_{2}+0.4854x_{3}+0.4987x_{4}+0.4831x_{5}+0.5002x_{6}$$
 \end{frame}
 
 \begin{frame}
-\frametitle{Descripción y resultados de las pruebas aplicadas}
-\begin{itemize}
-\item Prueba gráfica (correlograma): Esta gráfica nos muestra unas barras que corresponden a las correlaciones entre el residual $e_{i}$ y el residual $e_{i-k}$,donde k es la distancia entre la posición de los errores sobre la cuál se quiere observar tal correlación, básicamente la decisión consiste en generar un intervalo para dichas correlaciones y observar cuantos de ellos se salen de ese intervalo, si varias barras se salen de dicho intervalo, hay evidencia de que las correlaciones entre los errores son muy fuertes, por lo cual, no se puede decir que ellos son independientes. Está prueba es bastante subjetiva, ya que depende mucho de la experiencia y de la capacidad de la persona que la aplica para tomar su decisión sobre la validación del supuesto. Por lo cuál es preferible aplicar pruebas estadísticas como tal, como las siguientes tres que se van a describir.
-\end{itemize}
+\frametitle{Regresión por componentes principales (PCR)}
+~\\\begin{tabular}{p{1.8cm}p{1.8cm}p{2cm}p{1.8cm}p{1.8cm}p{1.8cm}|p{2.5cm}}
+\hline 
+ &  & VECTORES PROPIOS &  &  &  & VALORES PROPIOS $\lambda_{j}$ \\ 
+\hline 
+-0.07851439 & 0.88436486 & -0.399610859 & 0.03866445 & 0.2232029 & -0.02703696 & 3.72181333 \\  
+-0.16091266 & -0.38609154 & -0.891249689 & -0.14164674 & -0.1006961 & -0.02260359 & 1.05255886 \\  
+0.48537035 & 0.22689357 & -0.072328309 & -0.13160716 & -0.8298092 & 0.04242423 & 0.93404888 \\  
+0.49876670 & -0.09577328 & -0.124700897 & 0.47098126 & 0.1664129 & -0.69064631 & 0.19394997 \\  
+0.48308811 & -0.02353949 & 0.003937038 & -0.77674426 & 0.3947270 & -0.08315767 & 0.08822446 \\  
+0.50021584 & -0.08732010 & -0.158707136 & 0.36873545 & 0.2606814 & 0.71627560 & 0.00940450 \\ 
+\hline 
+\end{tabular} 
 \end{frame}
 
 \begin{frame}
-\frametitle{Descripción y resultados de las pruebas aplicadas}
-\begin{figure}[!h]
-    \begin{center}
-        \includegraphics[width=11.8cm]{imagenes/correlograma.pdf}
-        \caption{Correlograma de los residuos}
-        \label{fig:Densidad}
-    \end{center}
-\end{figure}
+\frametitle{Regresión por componentes principales (PCR)}
+~\\Y, el estimador de $\alpha$ es:
+ $$\hat{\alpha}=A^{-1}Z'y=\left[\begin{matrix}
+ -0.02697939 \\ 
+ 0.16597000 \\ 
+ -0.64338425 \\ 
+ 0.75560789 \\ 
+ -0.28640901 \\ 
+ 0.81285787
+ \end{matrix}\right]$$
 \end{frame}
 
 \begin{frame}
-\frametitle{Descripción y resultados de las pruebas aplicadas}
-\begin{itemize}
-\item Prueba de Rachas:Dada una sucesión de n observaciones de una variable que solo puede tomar dos valores, una racha es una sucesión de uno o más datos con el mismo valor que están seguidos y precedidos por datos con el otro valor, o por ningún dato si se encuentran en el inicio o el final de la sucesión.
-~\\ Ejemplo: En la sucesión A BBB AA BB A B se presentan 6 rachas.
-~\\ \textbf{Hipótesis:} Las hipótesis que se plantean en esta prueba son:
-~\\$H_{0}:$La muestra es aleatoria
-~\\$H_{1}:$La muestra no es aleatoria
-~\\ \textbf{Estadístico de prueba:} El estadístico de prueba es el número total de rachas, R, en la sucesión.
-\end{itemize}
+\frametitle{Regresión por componentes principales (PCR)}
+~\\Podemos ver que hay 3 valores propios muy cercanos a cero, por lo que esos no se tendrán en cuenta y nos quedaremos con las componentes principales correspondientes a los otros tres valores propios, entonces:
+$$\hat{\alpha_{PC}}=\left[\begin{matrix}
+ -0.02697939 \\ 
+ 0.16597000 \\ 
+ -0.64338425 \\ 
+0 \\ 
+ 0 \\ 
+ 0
+ \end{matrix}\right]$$
 \end{frame}
 
 \begin{frame}
-\frametitle{Descripción y resultados de las pruebas aplicadas}
-~\\ \textbf{Distribución del estadístico de prueba R:}Su distribución bajo la hipótesis nula $H_{0}$ esta dada por:
-~\\$P\left\lbrace{R=r}\right\rbrace=\frac{2\binom{n_{1}-1}{\frac{r}{2}-1}\binom{n_{2}-1}{\frac{r}{2}-1}}{\binom{n_{1}+n_{2}}{n_{1}}}$ si r es par
-
-~\\$P\left\lbrace{R=r}\right\rbrace=\frac{\binom{n_{1}-1}{\frac{r-1}{2}-1}\binom{n_{2}-1}{\frac{r-1}{2}}+\binom{n_{1}-1}{\frac{r-1}{2}}\binom{n_{2}-1}{\frac{r-1}{2}-1}}{\binom{n_{1}+n_{2}}{n_{1}}}$ si r es impar
-~\\Para r=2,3,4,...,$n_{1}+n_{2}$
-~\\ \textbf{Aproximación a la normal:}
-$$Z=\frac{R-\left(\frac{2n_{1}n_{2}}{n_{1}+n_{2}}+1\right)}{\sqrt{\frac{2n_{1}n_{2}(2n_{1}n_{2}-n_{1}-n_{2})}{(n_{1}+n_{2})^2 (n_{1}+n_{2}-1)}}} $$
+\frametitle{Regresión por componentes principales (PCR)}
+~\\Y, los betas estimados con tres componentes principales son:
+$$\hat{\beta}_{PC}=T\hat{\alpha}_{PC}=\left[\begin{matrix}
+ 0.40599964 \\ 
+ 0.51367772 \\ 
+ 0.07109743 \\ 
+ 0.05087868 \\ 
+ -0.01947330 \\ 
+ 0.07412164
+ \end{matrix}\right]$$
 \end{frame}
 
 \begin{frame}
-\frametitle{Descripción y resultados de las pruebas aplicadas}
-~\\ \textbf{Región de rechazo:}Se duda de la aleatoriedad cuando hay muchas o muy pocas rachas. Por tanto, la región de rechazo es de la forma:
-~\\ $R>R_{n_{1},n_{2};(1-\frac{\alpha}{2})}$ o $R<R_{n_{1},n_{2};\frac{\alpha}{2}}$
-~\\Donde la parte derecha de cada inecuación son los percentiles $(1-\frac{\alpha}{2})$ y $\frac{\alpha}{2}$ de la distribución del número de rachas R, cuando hay $n_{1}$ observaciones del tipo A y $n_{2}$ del tipo B.
-~\\ \textbf{Resultado:}
-\begin{figure}[!h]
-    \begin{center}
-        \includegraphics[width=10cm]{imagenes/rachas.png}
-        \caption{Resultado prueba de rachas}
-        \label{fig:Densidad}
-    \end{center}
-\end{figure}
+\frametitle{Regresión por componentes principales (PCR)}
+
 \end{frame}
 
 \begin{frame}
-\frametitle{Descripción y resultados de las pruebas aplicadas}
-\begin{itemize}
-\item Prueba de Durbin-Watson: El Test de Durbin-Watson permite evaluar si existe autocorrelación en una Regresión lineal, sea simple o múltiple. Con ello se pretende ver si los valores presentan algún tipo de dependencia en cuanto al orden de obtención. Las hipótesis que se plantean son las siguientes:
-~\\$H_{0}:\rho=0$
-~\\$H_{1}:\rho\neq 0$
-~\\ \textbf{Estadístico de prueba:}El estadístico de Durbin-Watson (D) está condicionado según el orden de las observaciones. El estadístico de Durbin-Watson determina si la correlación entre los términos de error adyacentes es o no es igual a cero. este estadístico esta dado por : $D=\frac{\sum\limits_{t=2}^{n}(e_{t}-e_{t-1})^2}{\sum\limits_{t=1}^{n}e_{t}^2}$ donde $e_{t}$ es el residuo t-esimo o a tiempo t.
-\end{itemize}
-\end{frame}
+\frametitle{Regresión por componentes principales (PCR)}
 
-\begin{frame}
-\frametitle{Descripción y resultados de las pruebas aplicadas}
-~\\ \textbf{Región de rechazo:}Para rechazar se utiliza una tabla con lo valores críticos del estadístico, las regiones de rechazo son:
-\begin{itemize}
-\item Si $d < d_{L,\alpha}$ existe evidencia estadística de que los términos de error estén autocorrelacionados positivamente.
-\item Si $d > d_{U,\alpha}$ no hay evidencia estadística de que los términos de error estén autocorrelacionados positivamente.
-\item Si $d_{L,\alpha} < d < d_{U,\alpha}$ la prueba no es concluyente.
-~\\ \textbf{Resultado:}
-\begin{figure}[!h]
-    \begin{center}
-        \includegraphics[width=10cm]{imagenes/durbin.png}
-        \caption{Resultado de la prueba de Durbin-Watson}
-        \label{fig:Densidad}
-    \end{center}
-\end{figure}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Descripción y resultados de las pruebas aplicadas}
-\begin{itemize}
-\item Prueba de Ljung-Box:La prueba de Ljung-Box es un tipo de prueba estadística que evalúa si un grupo cualquiera de autocorrelaciones de una serie de tiempo son diferentes de cero. En lugar de probar la aleatoriedad en cada retardo distinto, esta prueba la aleatoriedad en general basado en un número de retardos.
-~\\En la prueba de Ljung-Box se puede definir o plantear las hipótesis de la siguiente manera:
-~\\$H_{0}:$Los datos se distribuyen de forma independiente (es decir, las correlaciones en la población de la que se toma la muestra son 0, de modo que cualquier correlación observada en los datos es el resultado de la aleatoriedad del proceso de muestreo).
-~\\$H_{1}:$ Los datos no se distribuyen de forma independiente.
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Descripción y resultados de las pruebas aplicadas}
-~\\ \textbf{Estadístico de prueba:} El estadístico de prueba es: $Q=n(n+2)\sum\limits_{k=1}^{h}\frac{\hat{\rho_{k}^{2}}}{n-k}$
-~\\ donde n es el tamaño de la muestra, $\displaystyle {\hat {\rho }}_{k}$  es la autocorrelación de la muestra en el retraso k y h es el número de retardos que se están probando.
-~\\ \textbf{Región de rechazo:} Para un nivel de significancia $\alpha$ la región critica para rechazar la hipótesis de aleatoriedad es: $Q>\chi^{2}_{1-\alpha,h}$
-~\\donde $\displaystyle \chi _{1-\alpha ,h}^{2}$ es el $\alpha$-cuantil de la distribución chi-cuadrado con m grados de libertad.
-\end{frame}
-
-\begin{frame}
-\frametitle{Descripción y resultados de las pruebas aplicadas}
-~\\ \textbf{Resultado:}\begin{figure}[!h]
-    \begin{center}
-        \includegraphics[width=10cm]{imagenes/box.png}
-        \caption{Resultado de la prueba de Ljung-Box}
-        \label{fig:Densidad}
-    \end{center}
-\end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{Conclusión sobre nuestro modelo ajustado}
-~\\Teniendo en cuenta las pruebas aplicadas, donde vimos que en la prueba gráfica, muchas barras se nos salen de los intervalos y en las pruebas estadísticas los p valores de las tres pruebas son demasiado bajos llevándonos a rechazar siempre $H_{0}$, concluyendo que los residuos no son independientes, lo más común y razonable es concluir que nuestro modelo ajustado no cumple con este supuesto de independencia en los errores, por lo cuál diríamos que lo recomendable sería no usar este modelo. Sin embargo, los errores podrían ser independientes aún cuando los residuos no lo sean, y el supuesto se hace para los errores mas no para los residuos, pero eso no hay forma de probarlo a ciencia cierta, sin embargo hay que tener muy en cuenta los resultados obtenidos y queda a criterio de la persona si ignora estos resultados.
 \end{frame}
 
 
