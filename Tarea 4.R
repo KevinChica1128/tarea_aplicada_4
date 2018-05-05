@@ -11,7 +11,7 @@ cadata<- cadata[-c(1:15528,16029:20640),]
 
 #Ajuste del modelo completo:
 Regresion<- lm(cadata$Valor_mediano_de_la_casa ~ cadata$Ingreso_mediano+cadata$Edad_mediana_de_la_vivienda+cadata$Total_de_habitaciones+cadata$Total_de_dormitorios+cadata$Poblacion+cadata$Hogares)
-summary(Regresion)
+summary(Regresion)$sigma^2
 #Valors ajustados y residuales del modelo:
 yajustados<-fitted(Regresion)
 residuales<-residuals(Regresion)
@@ -62,7 +62,7 @@ Rho2=0.9822       #A mano
 VIFho=(1-Rho2)^(-1)
 
 #ANALISIS DE VALORES PROPIOS
-eigen(R)$values
+eigen(R)
 k=max(eigen(R)$values)/min(eigen(R)$values)
 ki=c(max(eigen(R)$values)/eigen(R)$values)
 #Determinante de la matriz de correlaciones:
@@ -109,7 +109,7 @@ summary(modeloreescalado)
 #X*t X en forma de correlacion es:
 Rr<-t(Xr)%*%Xr
 det(Rr)
-#Estimación por PCR:
+#Estimación por PCR (Estandarizados):
 y<-cadata$Valor_mediano_de_la_casa
 eigen(Rr)
 T<-eigen(Rr)$vectors
@@ -117,15 +117,23 @@ Z<-Xr%*%T
 A<-t(Z)%*%Z
 alfae<-solve(A)%*%t(Z)%*%Y
 alfaec<-c(1,1,1,0,0,0)*alfae
-Betaest<-T%*%alfae
+Betaest<-T%*%alfaec
 mean(Y)
 
-Rr1<-t(X)%*%X
-T1<-eigen(Rr1)$vectors
-Z1<-X%*%T1
-A1<-t(Z1)%*%Z1
-alfae1<-solve(A1)%*%t(Z1)%*%y
-Betaest1<-T1%*%alfae1
+#Estimación por PCR(escala original)
+xbarra<-c(mean(x1),mean(x2),mean(x3),mean(x4),mean(x5),mean(x6))
+Betaori<-c()
+Betaori[1]=Betaest[1]*(sd(y)/sd(x1))
+Betaori[2]=Betaest[2]*(sd(y)/sd(x2))
+Betaori[3]=Betaest[3]*(sd(y)/sd(x3))
+Betaori[4]=Betaest[4]*(sd(y)/sd(x4))
+Betaori[5]=Betaest[5]*(sd(y)/sd(x5))
+Betaori[6]=Betaest[6]*(sd(y)/sd(x6))
+
+Beta0ori=mean(y)-(t(Betaori)%*%xbarra)
+betas<-c(Beta0ori,Betaori)
+sigma=(1/(500-7))*(t(y)%*%y-(t(betas)%*%t(X_1col)%*%y))
+sqrt(sigma)
 
 #varianza MCO (datos normales):
 X_1col=cbind(1,X)
@@ -148,4 +156,23 @@ Vbetalme=solve(t(X_1cole)%*%X_1cole)*0.0009279279
 var_pcre=(1/(500-7))*((t(Y)%*%Y)-((t(Betaestint))%*%t(X_1cole)%*%Y))
 VbetaPCRe=(T%*%solve(A)%*%t(T))*0.0009279279
 Betaestint<-c(0,Betaest)
+
+#R2 de os dos modelos (PCR y MCO):
+X1d<-(x1-mean(x1))
+X2d<-(x2-mean(x2))
+X3d<-(x3-mean(x3))
+X4d<-(x4-mean(x4))
+X5d<-(x5-mean(x5))
+X6d<-(x6-mean(x6))
+Xd<-cbind(X1d,X2d,X3d,X4d,X5d,X6d)
+yd<-(y-mean(y))
+xdtxd<-t(Xd)%*%Xd
+xdtyd<-t(Xd)%*%yd
+B1M<-solve(t(Xd)%*%Xd)%*%t(Xd)%*%yd
+B1P<-Betaori
+SCRdM<-t(B1M)%*%t(Xd)%*%yd
+SCRdP<-t(B1P)%*%t(Xd)%*%yd
+SCTd<-t(yd)%*%yd
+R2M<-SCRdM/SCTd
+R2P<-SCRdP/SCTd
 

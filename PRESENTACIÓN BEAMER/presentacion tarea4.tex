@@ -31,8 +31,9 @@
 \begin{frame}
 \frametitle{Modelo planteado}
 ~\\ El modelo sobre el cuál se va a evaluar la presencia de la multicolinealidad, es el modelo que se planteó en la tarea 1, que pretendía explicar la variable 'Valor mediano de las viviendas' con las variables explicativas 'Ingreso mediano','Edad mediana de la vivienda','Total de habitaciones','Total de dormitorios','Población' y 'Hogares'. El modelo planteado para estas variables, sin hacer transformación ni selección de estas es:
-$$ValorMediano =\beta_{0}+\beta_{1}(IngresoMediano)+\beta_{2}(EdadMediana)+\beta_{3}(TotalDeHabitaciones)$$
-$$+\beta_{4}(TotalDeDormitorios)+\beta_{5}(Poblacion)+\beta_{6}(Hogares) $$
+
+$$ValorMediano =\beta_{0}+\beta_{1}(IngresoMediano)+\beta_{2}(EdadMediana)+\beta_{3}$$
+$$(Habitaciones)+\beta_{4}(Dormitorios)+\beta_{5}(Poblacion)+\beta_{6}(Hogares)$$ 
 \end{frame}
 
 \begin{frame}
@@ -44,15 +45,15 @@ $$+\beta_{4}(TotalDeDormitorios)+\beta_{5}(Poblacion)+\beta_{6}(Hogares) $$
 \frametitle{Posibles causas de la multicolinealidad}
 ~\\La multicolinealidad se puede dar por cuatro fuentes principales:
 \begin{itemize}
-\item[1.]]El método de recolección de datos que se empleó:Puede originar problemas de multicolinealidad cuando el analista sólo muestrea un subespacio de la región de los regresores definidos.
-\item[2.]Restricciones en el modelo o en la población:Las restricciones en el modelo o en la población que se muestrea pueden causar multicolinealidad; por ejemplo, supóngase que una empresa eléctrica está investigando el efecto del ingreso familiar $(X_{l})$ y el tamaño de la vivienda $(X_{2})$ sobre el consumo eléctrico residencial.En este ejemplo, una restricción física en la población fue lo que causó este fenómeno: las familias que tienen ingresos mayores en general tienen casas mayores que las familias de menores ingresos, cuando hay restricciones físicas como ésta, habrá multicolinealidad independientemente del método de muestreo que se emplee.
+\item[1.]El método de recolección de datos que se empleó:Puede originar problemas de multicolinealidad cuando el analista sólo muestrea un subespacio de la región de los regresores definidos.
+\item[2.]Especificación del modelo:También se puede inducir la multicolinealidad por la elección del modelo. Por ejemplo,al agregar términos polinomiales a un modelo de regresión se produce un deterioramiento en $X^{T}X$, además, si el rango de X es pequeño, al agregar un término en $X^{2}$ puede producirse una multicolinealidad importante.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Posibles causas de la multicolinealidad}
 \begin{itemize}
-\item[3.]Especificación del modelo:También se puede inducir la multicolinealidad por la elección del modelo. Por ejemplo,al agregar términos polinomiales a un modelo de regresión se produce un deterioramiento en $X^{T}X$, además, si el rango de X es pequeño, al agregar un término en $X^{2}$ puede producirse una multicolinealidad importante. 
+\item[3.]Restricciones en el modelo o en la población:Las restricciones en el modelo o en la población que se muestrea pueden causar multicolinealidad; por ejemplo, supóngase que una empresa eléctrica está investigando el efecto del ingreso familiar $(X_{l})$ y el tamaño de la vivienda $(X_{2})$ sobre el consumo eléctrico residencial.En este ejemplo, una restricción física en la población fue lo que causó este fenómeno: las familias que tienen ingresos mayores en general tienen casas mayores que las familias de menores ingresos, cuando hay restricciones físicas como ésta, habrá multicolinealidad independientemente del método de muestreo que se emplee.
 \item[4.]Un modelo sobredefinido:Cuando se tienen mas variables regresoras que observaciones se puede generar un problema de multicolinealidad.
 \end{itemize}
 \end{frame}
@@ -173,37 +174,31 @@ al usar en el modelo menos componentes que el conjunto completo de componentes p
 
 \begin{frame}
 \frametitle{Regresión por componentes principales (PCR)}
-~\\Supóngase que los últimos s eigenvalores de éstos son aproximadamente iguales a cero. En la regresión por componentes principales, se eliminan los componentes principales que correspondan a eigenvalores cercanos a cero, y se aplican los mínimos cuadrados a los componentes restantes.
-Esto es,
+~\\Supóngase que los últimos s eigenvalores de éstos son aproximadamente iguales a cero. En la regresión por componentes principales, se eliminan los componentes principales que correspondan a eigenvalores cercanos a cero, y se aplican los mínimos cuadrados a los componentes restantes. Esto es,
 $$\hat{\alpha_{PC}}=B\hat{\alpha}$$
-~\\donde $b_{1}=b_{2}=...=b_{p-s}=1$, y $b_{p-s+1}=b_{p-s+2}=...=b_{p}=0$.Así, el estimador de componentes principales es
+donde $b_{1}=b_{2}=...=b_{p-s}=1$, y $b_{p-s+1}=b_{p-s+2}=...=b_{p}=0$.Así, el estimador de componentes principales es
 $$\hat{\alpha_{PC}}=\left[\begin{matrix}
 \hat{\alpha_{1}} & \hat{\alpha_{2}} & \cdots & \hat{\alpha_{p-s}} & | & 0 & 0 & \cdots & 0
 \end{matrix}\right]$$ 
+\end{frame}
+
+\begin{frame}
+\frametitle{Regresión por componentes principales (PCR)}
 ~\\ o, en términos de los regresores normalizados,
 $$\hat{\beta}_{PC}=T\hat{\alpha}_{PC}=\sum\limits_{j=1}^{p-1}\lambda_{j}^{-1}t'_{j}X'yt_{j}$$
+~\\Para hacer uso de la regresión por componentes principales en nuestro modelo, se comienza con la transformación lineal $Z=XT$ que transforma los regresores estandarizados originales en un conjunto ortogonal de variables (los componentes principales). Los valores propios $\lambda_{j}$ y la matriz T para los 500 datos seleccionados de la base de datos 'cadata' se muestran en la siguiente tabla.La matriz T indica la relación entre Z y los regresores estandarizados. 
 \end{frame}
 
 \begin{frame}
 \frametitle{Regresión por componentes principales (PCR)}
-~\\Para hacer uso de la regresión por componentes principales en nuestro modelo, se comienza con la transformación lineal $Z=XT$ que transforma los regresores estandarizados originales en un conjunto ortogonal de variables (los componentes principales). Los valores propios $\lambda_{j}$ y la matriz T para los 500 datos seleccionados de la base de datos 'cadata' se muestran en la siguiente tabla.La matriz T indica la relación entre Z y los regresores estandarizados. Por ejemplo, la relación entre $Z_{1}$ y los regresores estandarizados es 
+~\\Por ejemplo, la relación entre $Z_{1}$ y los regresores estandarizados es 
 $$z_{1}=-0.0785x_{1}-0.1609x_{2}+0.4854x_{3}+0.4987x_{4}+0.4831x_{5}+0.5002x_{6}$$
-\end{frame}
-
-\begin{frame}
-\frametitle{Regresión por componentes principales (PCR)}
-~\\\begin{tabular}{p{1.8cm}p{1.8cm}p{2cm}p{1.8cm}p{1.8cm}p{1.8cm}|p{2.5cm}}
-\hline 
- &  & VECTORES PROPIOS &  &  &  & VALORES PROPIOS $\lambda_{j}$ \\ 
-\hline 
--0.07851439 & 0.88436486 & -0.399610859 & 0.03866445 & 0.2232029 & -0.02703696 & 3.72181333 \\  
--0.16091266 & -0.38609154 & -0.891249689 & -0.14164674 & -0.1006961 & -0.02260359 & 1.05255886 \\  
-0.48537035 & 0.22689357 & -0.072328309 & -0.13160716 & -0.8298092 & 0.04242423 & 0.93404888 \\  
-0.49876670 & -0.09577328 & -0.124700897 & 0.47098126 & 0.1664129 & -0.69064631 & 0.19394997 \\  
-0.48308811 & -0.02353949 & 0.003937038 & -0.77674426 & 0.3947270 & -0.08315767 & 0.08822446 \\  
-0.50021584 & -0.08732010 & -0.158707136 & 0.36873545 & 0.2606814 & 0.71627560 & 0.00940450 \\ 
-\hline 
-\end{tabular} 
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=12cm]{imagenes/vec.png}
+        \label{fig:Densidad}
+    \end{center}
+\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -247,13 +242,45 @@ $$\hat{\beta}_{PC}=T\hat{\alpha}_{PC}=\left[\begin{matrix}
 
 \begin{frame}
 \frametitle{Regresión por componentes principales (PCR)}
-
+\begin{tabular}{|p{1.8cm}|p{2.5cm}p{2.5cm}|p{3cm}p{2.5cm}|}
+\hline 
+  &3 Componentes&principales&Minimos cuadrados&Ordinarios \\ 
+\hline 
+Parámetro & Estimador Est. & Estimador Ori. & Estimador Est. & Estimador Ori. \\ 
+ 
+$\beta_{0}$ & 1.130918e-17 & 57720.52 & -1.047e-17 & 57720.52 \\ 
+ 
+$\beta_{1}$ & 0.4060 & 28198.53521 & 0.3493 & 24261.20 \\ 
+ 
+$\beta_{2}$ & 0.5136 & 4241.22091 & 0.4171 & 3443.94 \\ 
+ 
+$\beta_{3}$ & 0.0711 & 5.56604 & 0.2438 & 19.09 \\ 
+ 
+$\beta_{4}$ & 0.0508 & 17.0307 & -0.2023 & -67.72 \\ 
+ 
+$\beta_{5}$ & -0.0195 & -3.01025 & -0.7870 & -121.66 \\ 
+ 
+$\beta_{6}$ & 0.0741 & 27.21851 & 0.8603 & 315.92 \\ 
+\hline 
+\end{tabular} 
 \end{frame}
 
 \begin{frame}
-\frametitle{Regresión por componentes principales (PCR)}
-
+\frametitle{Comparación modelos}
+\begin{center}
+\begin{tabular}{|ccc|}
+\hline 
+ & $R^2$ & $\sigma^2$ \\ 
+\hline 
+MCO & 0.5425316 & 6724487923 \\ 
+\hline 
+PCR & 0.4183462 & 8549932422 \\ 
+\hline 
+\end{tabular} 
+\end{center}
+~\\Observando el $R^2$ y $\hat{\sigma^2}$ podemos ver que el modelo obtenido por MCO es mejor que el modelo obtenido por regresión PCR.
 \end{frame}
+
 
 
 \end{document}

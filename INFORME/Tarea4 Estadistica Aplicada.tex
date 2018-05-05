@@ -267,26 +267,28 @@ $$\hat{\beta}_{PC}=T\hat{\alpha}_{PC}=\left[\begin{matrix}
 \hline 
 Parámetro & Estimador Est. & Estimador Ori. & Estimador Est. & Estimador Ori. \\ 
  
-$\beta_{0}$ & 1.130918e-17 &  & -1.047e-17 & 57720.52 \\ 
+$\beta_{0}$ & 1.130918e-17 & -5495.492 & -1.047e-17 & 57720.52 \\ 
  
-$\beta_{1}$ & 0.4060 & -0.4056 & 0.3493 & 24261.20 \\ 
+$\beta_{1}$ & 0.4060 & 28198.53521 & 0.3493 & 24261.20 \\ 
  
-$\beta_{2}$ & 0.5136 & 3.0349 & 0.4171 & 3443.94 \\ 
+$\beta_{2}$ & 0.5136 & 4241.22091 & 0.4171 & 3443.94 \\ 
  
-$\beta_{3}$ & 0.0711 & -24.1290 & 0.2438 & 19.09 \\ 
+$\beta_{3}$ & 0.0711 & 5.56604 & 0.2438 & 19.09 \\ 
  
-$\beta_{4}$ & 0.0508 & 130.9351 & -0.2023 & -67.72 \\ 
+$\beta_{4}$ & 0.0508 & 17.0307 & -0.2023 & -67.72 \\ 
  
-$\beta_{5}$ & -0.0195 & -53.6609 & -0.7870 & -121.66 \\ 
+$\beta_{5}$ & -0.0195 & -3.01025 & -0.7870 & -121.66 \\ 
  
-$\beta_{6}$ & 0.0741 & 111.6005 & 0.8603 & 315.92 \\ 
+$\beta_{6}$ & 0.0741 & 27.21851 & 0.8603 & 315.92 \\ 
 \hline 
 \end{tabular} 
+~\\La varianza del modelo $\sigma^2$, es mayor para el método PCR, donde $\sigma_{MCO}^{2}=6724487923$ y $\sigma_{PCR}^2=8549932422$, obviamente, la varianza de las estimaciones también van a ser más altas con los Betas obtenidos por PCR que con los Betas obtenidos por MCO, ya que para calcular dicha varianza, la formula es $V(\beta)=(X^{T}X)^{-1}\hat{\sigma^2}$ y $(X^{T}X)^{-1}$ es el mismo para ambos.
+~\\Con respecto al $R^2$ del modelo, también son mejores las estimaciones por MCO, ya que, $R_{MCO}^{2}=0.5425316$ y $R_{PCR}^{2}=0.4183462$
 \section{Implementación en R}
 ~\\Para llevar a cabo todo el análisis estadístico se utilizó el software \citeasnoun{R}.Para leer y cargar la base de datos 'cadata' se utilizó el paquete \citeasnoun{read},para todo lo relacionado con el álgebra matricial implícito (valores y vectores propios, multiplicación y manejo de vectores) se realizó con las operaciones base que trae R, para las estimaciones de los coeficientes o de los $\beta's$ por MCO se utilizó la función \citeasnoun{Lm} y para la estimación de los coeficientes por componentes principales se usó el paquete \citeasnoun{pls}, más específicamente la función pcr, que nos arroja los componentes principales y los coeficientes estimados por el número de componentes que se desee. Se utilizó un paquete adicional para calcular los VIF, cabe decir que también se hicieron a mano con la formula dada, y los resultados fueron idénticos, ese paquete fue \citeasnoun{vif}.
 
 \section{Conclusiones}
-
+~\\La regresión PCR resuelve el problema de multicolinealidad reduciendo el numero de componentes principales que el modelo completo o regresión por mínimos cuadrados utiliza, sin embargo la varianza de este método aumentó, lo que es un punto en contra, aun así es una buena alternativa para solucionar este problema. También apreciamos que el $R^2$ disminuyó considerablemente, esto tal vez es debido a que se quitan componentes que explican poco sobre la variabilidad del modelo y esto hace que el $R^2$ disminuya en proporción a cuantos componentes se eliminan del modelo.
 
 
 
