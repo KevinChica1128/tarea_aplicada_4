@@ -251,7 +251,7 @@ $$\hat{\beta}_{PC}=T\hat{\alpha}_{PC}=\left[\begin{matrix}
 \end{frame}
 
 \begin{frame}
-\frametitle{Comparación modelos}
+\frametitle{Comparación de modelos y conclusión}
 \begin{center}
 \begin{tabular}{|ccc|}
 \hline 
@@ -263,7 +263,7 @@ PCR & 0.4183462 & 8549932422 \\
 \hline 
 \end{tabular} 
 \end{center}
-~\\Observando el $R^2$ y $\hat{\sigma^2}$ podemos ver que el modelo obtenido por MCO es mejor que el modelo obtenido por regresión PCR.
+~\\La regresión PCR resuelve el problema de multicolinealidad reduciendo el numero de componentes principales que el modelo completo o regresión por mínimos cuadrados utiliza, sin embargo la varianza de este método aumentó, lo que es un punto en contra, aun así es una buena alternativa para solucionar este problema. También apreciamos que el $R^2$ disminuyó considerablemente, esto tal vez es debido a que se quitan componentes que explican poco sobre la variabilidad del modelo y esto hace que el $R^2$ disminuya en proporción a cuantos componentes se eliminan del modelo.
 \end{frame}
 
 
