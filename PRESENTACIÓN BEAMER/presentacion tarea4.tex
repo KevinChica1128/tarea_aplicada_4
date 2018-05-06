@@ -100,13 +100,12 @@ $$VIF_{j}=C_{jj}=(1-R^2_{j})^{-1}$$
 \begin{frame}
 \frametitle{Métodos para detectar multicolinealidad}
 ~\\Los $VIF_{i}$ para este modelo son:
-~\\\begin{tabular}{llllllll}
-\hline 
-VARIABLE & Ing.Mediano & Edad Mediana & T.Habitaciones & T.Dormitorios & Población & Hogares \\ 
-\hline 
-VIF & 1.565795 & 1.271698 & 8.203393 & 52.2694 & 5.675371 & 56.12648 & \\ 
-\hline 
-\end{tabular} 
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=12cm]{imagenes/VIFS.png}
+        \label{fig:Densidad}
+    \end{center}
+\end{figure}
 ~\\Podemos ver que hay 2 VIF mayores que 5 y 2 VIF mayores que 10, entonces podemos afirmar que los coeficientes de regresión asociados a estas variables están mal estimados debido a la multicolinealidad.
 \end{frame}
 
@@ -242,27 +241,13 @@ $$\hat{\beta}_{PC}=T\hat{\alpha}_{PC}=\left[\begin{matrix}
 
 \begin{frame}
 \frametitle{Regresión por componentes principales (PCR)}
-\begin{tabular}{|p{1.8cm}|p{2.5cm}p{2.5cm}|p{3cm}p{2.5cm}|}
-\hline 
-  &3 Componentes&principales&Minimos cuadrados&Ordinarios \\ 
-\hline 
-Parámetro & Estimador Est. & Estimador Ori. & Estimador Est. & Estimador Ori. \\ 
- 
-$\beta_{0}$ & 1.130918e-17 & 57720.52 & -1.047e-17 & 57720.52 \\ 
- 
-$\beta_{1}$ & 0.4060 & 28198.53521 & 0.3493 & 24261.20 \\ 
- 
-$\beta_{2}$ & 0.5136 & 4241.22091 & 0.4171 & 3443.94 \\ 
- 
-$\beta_{3}$ & 0.0711 & 5.56604 & 0.2438 & 19.09 \\ 
- 
-$\beta_{4}$ & 0.0508 & 17.0307 & -0.2023 & -67.72 \\ 
- 
-$\beta_{5}$ & -0.0195 & -3.01025 & -0.7870 & -121.66 \\ 
- 
-$\beta_{6}$ & 0.0741 & 27.21851 & 0.8603 & 315.92 \\ 
-\hline 
-\end{tabular} 
+~\\En la siguiente tabla vemos los coeficientes correspondientes a MCO y PCR utilizando tres componentes principales:
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=12cm]{imagenes/com.png}
+        \label{fig:Densidad}
+    \end{center}
+\end{figure}
 \end{frame}
 
 \begin{frame}
