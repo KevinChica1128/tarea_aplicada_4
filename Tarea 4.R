@@ -1,5 +1,6 @@
 #Tarea 4 Aplicada II
 #Kevin García - Alejandro Vargas
+library(MASS)
 install.packages("readr")
 library("readr")
 cadata <- read.csv("~/GitHub/tarea_aplicada_4/cadata.txt", sep="")
@@ -102,6 +103,7 @@ X4<-(x4-mean(x4))/sqrt(sum(x4^2)-(length(x4)*mean(x4)^2))
 X5<-(x5-mean(x5))/sqrt(sum(x5^2)-(length(x5)*mean(x5)^2))
 X6<-(x6-mean(x6))/sqrt(sum(x6^2)-(length(x6)*mean(x6)^2))
 Xr<-cbind(X1,X2,X3,X4,X5,X6)
+y<-cadata$Valor_mediano_de_la_casa
 Y<-(y-mean(y))/sqrt(sum(y^2)-(length(y)*mean(y)^2))
 modeloreescalado<-lm(Y~X1+X2+X3+X4+X5+X6)
 modeloreescalado$coefficients
@@ -110,7 +112,6 @@ summary(modeloreescalado)
 Rr<-t(Xr)%*%Xr
 det(Rr)
 #Estimación por PCR (Estandarizados):
-y<-cadata$Valor_mediano_de_la_casa
 eigen(Rr)
 T<-eigen(Rr)$vectors
 Z<-Xr%*%T
@@ -154,7 +155,7 @@ Vbetalme=solve(t(X_1cole)%*%X_1cole)*0.0009279279
 
 #Varianza PCR con tres componentes (datos estandarizados):
 var_pcre=(1/(500-7))*((t(Y)%*%Y)-((t(Betaestint))%*%t(X_1cole)%*%Y))
-VbetaPCRe=(T%*%solve(A)%*%t(T))*0.0009279279
+VbetaPCRe=(T%*%solve(A)%*%t(T))*0.001179825
 Betaestint<-c(0,Betaest)
 
 #R2 de os dos modelos (PCR y MCO):
@@ -175,4 +176,5 @@ SCRdP<-t(B1P)%*%t(Xd)%*%yd
 SCTd<-t(yd)%*%yd
 R2M<-SCRdM/SCTd
 R2P<-SCRdP/SCTd
+
 

@@ -6,6 +6,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{ragged2e}
 \author{Kevin García - Alejandro Vargas}
 \title{Multicolinealidad}
 %\setbeamercovered{transparent} 
@@ -15,7 +16,7 @@
 %\date{} 
 %\subject{} 
 \begin{document}
-
+\justify
 \begin{frame}
 \titlepage
 \end{frame}
@@ -53,7 +54,7 @@ $$(Habitaciones)+\beta_{4}(Dormitorios)+\beta_{5}(Poblacion)+\beta_{6}(Hogares)$
 \begin{frame}
 \frametitle{Posibles causas de la multicolinealidad}
 \begin{itemize}
-\item[3.]Restricciones en el modelo o en la población:Las restricciones en el modelo o en la población que se muestrea pueden causar multicolinealidad; por ejemplo, supóngase que una empresa eléctrica está investigando el efecto del ingreso familiar $(X_{l})$ y el tamaño de la vivienda $(X_{2})$ sobre el consumo eléctrico residencial.En este ejemplo, una restricción física en la población fue lo que causó este fenómeno: las familias que tienen ingresos mayores en general tienen casas mayores que las familias de menores ingresos, cuando hay restricciones físicas como ésta, habrá multicolinealidad independientemente del método de muestreo que se emplee.
+\item[3.]Restricciones en el modelo o en la población:Las restricciones en el modelo o en la población que se muestrea pueden causar multicolinealidad; por ejemplo, supóngase que una empresa eléctrica está investigando el efecto del ingreso familiar $(X_{l})$ y el tamaño de la vivienda $(X_{2})$ sobre el consumo eléctrico residencial.En este ejemplo, una restricción física en la población fue lo que causó este fenómeno: las familias que tienen ingresos mayores en general tienen casas mas grandes que las familias de menores ingresos, cuando hay restricciones físicas como ésta, habrá multicolinealidad independientemente del método de muestreo que se emplee.
 \item[4.]Un modelo sobredefinido:Cuando se tienen mas variables regresoras que observaciones se puede generar un problema de multicolinealidad.
 \end{itemize}
 \end{frame}
@@ -123,7 +124,8 @@ $$VIF_{j}=C_{jj}=(1-R^2_{j})^{-1}$$
 ~\\$$k_{j}=\frac{\lambda_{max}}{\lambda_{j}} ; j=1,2,...,p$$
 ~\\La cantidad de indices de condición que son grandes (digamos, $\geq 1000$) es una medida útil de la cantidad de dependencias casi lineales en $X^{T}X$.
 ~\\Los valores propios para la matriz $X^{T}X=R$ (en forma de correlación) correspondiente a nuestros datos son:
-~\\$\lambda_{1}=3.72181333,\lambda_{2}=1.05255886,\lambda_{3}=0.93404888,\lambda_{4}=0.19394997,\lambda_{5}=0.08822446,\lambda_{6}=0.00940450$
+~\\$\lambda_{1}=3.72181333,\lambda_{2}=1.05255886,\lambda_{3}=0.93404888,$
+~\\$\lambda_{4}=0.19394997,\lambda_{5}=0.08822446,\lambda_{6}=0.00940450.$
 \end{frame}
 
 \begin{frame}
@@ -157,13 +159,13 @@ $$k=\frac{\lambda_{max}}{\lambda_{min}}=\frac{3.72181333}{0.00940450}=395.748134
 ~\\Los coeficientes de regresión se pueden obtener por un procedimiento denominado regresión por componentes principales. Sea la forma canónica del modelo:
 $$y=Z\alpha+\epsilon$$
 ~\\Donde $Z=XT$, $\alpha=T'\beta$,  $T'X'XT=Z'Z=A$ 
-~\\Y $A=diag(\lambda_{1},\lambda_{2},...,\lambda_{p})$ es una matriz diagonal de tamapo p x p de los valores propios de $X'X$ y T es una matriz ortogonal cuyas columnas son los vectores propios asociados a los valores propios $\lambda_{1},\lambda_{2},...,\lambda_{p}$. Las columnas de Z, definen un nuevo conjunto de regresores ortogonales, como:
+~\\Y $A=diag(\lambda_{1},\lambda_{2},...,\lambda_{p})$ es una matriz diagonal de tamaño p x p de los valores propios de $X'X$ y T es una matriz ortogonal cuyas columnas son los vectores propios asociados a los valores propios $\lambda_{1},\lambda_{2},...,\lambda_{p}$. Las columnas de Z, definen un nuevo conjunto de regresores ortogonales, como:
 $$Z=[Z_{1},Z_{2},...,Z_{p}]$$ Se llaman componentes principales
 \end{frame}
 
 \begin{frame}
 \frametitle{Regresión por componentes principales (PCR)}
-~\\Entonces, el estimador de $\hat{\alpha}$ por minimos cuadrados es
+~\\Entonces, el estimador de $\hat{\alpha}$ por mínimos cuadrados es
 $$\hat{\alpha}=(Z'Z)^{-1}Z'y= A^{-1}Z'y$$
 ~\\Y la matriz de covarianzas de $\hat{\alpha}$ es 
 $$Var(\hat{\alpha})=\sigma^2 (Z'Z)^{-1}=\sigma^2 A^{-1}$$
@@ -175,7 +177,8 @@ al usar en el modelo menos componentes que el conjunto completo de componentes p
 \frametitle{Regresión por componentes principales (PCR)}
 ~\\Supóngase que los últimos s eigenvalores de éstos son aproximadamente iguales a cero. En la regresión por componentes principales, se eliminan los componentes principales que correspondan a eigenvalores cercanos a cero, y se aplican los mínimos cuadrados a los componentes restantes. Esto es,
 $$\hat{\alpha_{PC}}=B\hat{\alpha}$$
-donde $b_{1}=b_{2}=...=b_{p-s}=1$, y $b_{p-s+1}=b_{p-s+2}=...=b_{p}=0$.Así, el estimador de componentes principales es
+donde $b_{1}=b_{2}=...=b_{p-s}=1$, y $b_{p-s+1}=b_{p-s+2}=...=b_{p}=0$.
+~\\Así, el estimador de componentes principales es
 $$\hat{\alpha_{PC}}=\left[\begin{matrix}
 \hat{\alpha_{1}} & \hat{\alpha_{2}} & \cdots & \hat{\alpha_{p-s}} & | & 0 & 0 & \cdots & 0
 \end{matrix}\right]$$ 
@@ -251,19 +254,34 @@ $$\hat{\beta}_{PC}=T\hat{\alpha}_{PC}=\left[\begin{matrix}
 \end{frame}
 
 \begin{frame}
+\frametitle{Comparación de varianzas de las estimaciones}
+\begin{center}
+\begin{tabular}{|ccccccc|}
+\hline 
+ & $\beta_{1}$ & $\beta_{2}$ & $\beta_{3}$ & $\beta_{4}$ & $\beta_{5}$ & $\beta_{6}$ \\ 
+\hline 
+$V_{MCO}(\hat{\beta})$ & 0.0014 & 0.0012 & 0.0076 & 0.0485 & 0.0052 & 0.0521 \\ 
+\hline 
+$V_{PCR}(\hat{\beta})$ & 0.0018 & 0.0015 & 0.0096 & 0.0616 & 0.0067 & 0.0662 \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\end{frame}
+
+\begin{frame}
 \frametitle{Comparación de modelos y conclusión}
 \begin{center}
 \begin{tabular}{|ccc|}
 \hline 
  & $R^2$ & $\sigma^2$ \\ 
 \hline 
-MCO & 0.5425316 & 6724487923 \\ 
+MCO & 0.5425316 & 0.0009279279 \\ 
 \hline 
-PCR & 0.4183462 & 8549932422 \\ 
+PCR & 0.4183462 & 0.001179825 \\ 
 \hline 
 \end{tabular} 
 \end{center}
-~\\La regresión PCR resuelve el problema de multicolinealidad reduciendo el numero de componentes principales que el modelo completo o regresión por mínimos cuadrados utiliza, sin embargo la varianza de este método aumentó, lo que es un punto en contra, aun así es una buena alternativa para solucionar este problema. También apreciamos que el $R^2$ disminuyó considerablemente, esto tal vez es debido a que se quitan componentes que explican poco sobre la variabilidad del modelo y esto hace que el $R^2$ disminuya en proporción a cuantos componentes se eliminan del modelo.
+~\\La regresión PCR resuelve el problema de multicolinealidad reduciendo el numero de componentes principales que el modelo completo o regresión por mínimos cuadrados utiliza, sin embargo la varianza de este método aumentó,al igual que la de sus estimaciones, lo cual es un punto en contra, aun así es una buena alternativa para solucionar este problema. También apreciamos que el $R^2$ disminuyó considerablemente, esto tal vez es debido a que se quitan componentes que explican poco sobre la variabilidad del modelo y esto hace que el $R^2$ disminuya en proporción a cuantos componentes se eliminan del modelo.
 \end{frame}
 
 
